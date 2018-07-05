@@ -304,6 +304,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/05/129. Sum Root to Leaf Numbers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/05/129. Sum Root to Leaf Numbers/" itemprop="url">
+                  129. Sum Root to Leaf Numbers
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-05 01:58:04 / Modified: 02:07:15" itemprop="dateCreated datePublished" datetime="2018-07-05T01:58:04-04:00">2018-07-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>A binary tree question.</p>
+<p>The general ieda is using preorder traversal in recursion way. Iterative solution is also accepted.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNumbers</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        dfs(root, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode node, <span class="keyword">int</span> cur)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        cur = cur * <span class="number">10</span> + node.val;</span><br><span class="line">        <span class="keyword">if</span> (node.left == <span class="keyword">null</span> &amp;&amp; node.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            sum += cur;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) dfs(node.left, cur);</span><br><span class="line">        <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) dfs(node.right, cur);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">iterative</span><span class="params">(TreeNode root)</span> </span>&#123;<span class="comment">// use two stacks to keep nodes and current sum</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        Stack&lt;Integer&gt; sum = <span class="keyword">new</span> Stack&lt;&gt;(); </span><br><span class="line">        stack.push(root);</span><br><span class="line">        sum.push(root.val);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">            TreeNode node = stack.pop();</span><br><span class="line">            <span class="keyword">int</span> cur = sum.pop();</span><br><span class="line">            <span class="keyword">if</span> (node.left == <span class="keyword">null</span> &amp;&amp; node.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">                res += cur;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(node.right);</span><br><span class="line">                sum.push(cur * <span class="number">10</span> + node.right.val);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(node.left);</span><br><span class="line">                sum.push(cur * <span class="number">10</span> + node.left.val);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/01/863. All Nodes Distance K in Binary Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -843,7 +1002,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -877,7 +1036,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
