@@ -108,23 +108,25 @@
 
 
 
-  <meta name="description" content="除了代码，还会写点别的东西">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leo_607">
-<meta property="og:url" content="https://zjutmisleo.github.io/categories/essay/index.html">
+  <meta name="description" content="最近看到FB有人被面了Kth smallest element，我也重新复习一下。 解法1: 开一个PriorityQueue，time complexity Nlog(K). 解法2: 快速选择 思路和快排相同，但只需要对一边进行排序就行。 因为排序后pivot在整个list中的index是确定的，我们只需要比较K和index，如果K &amp;lt; index，那么说明要找的target num在左">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="quick select &amp; quick sort">
+<meta property="og:url" content="https://zjutmisleo.github.io/2018/07/29/quick select & quick sort/index.html">
 <meta property="og:site_name" content="Leo_607">
-<meta property="og:description" content="除了代码，还会写点别的东西">
+<meta property="og:description" content="最近看到FB有人被面了Kth smallest element，我也重新复习一下。 解法1: 开一个PriorityQueue，time complexity Nlog(K). 解法2: 快速选择 思路和快排相同，但只需要对一边进行排序就行。 因为排序后pivot在整个list中的index是确定的，我们只需要比较K和index，如果K &amp;lt; index，那么说明要找的target num在左">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-31T05:55:50.145Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leo_607">
-<meta name="twitter:description" content="除了代码，还会写点别的东西">
+<meta name="twitter:title" content="quick select &amp; quick sort">
+<meta name="twitter:description" content="最近看到FB有人被面了Kth smallest element，我也重新复习一下。 解法1: 开一个PriorityQueue，time complexity Nlog(K). 解法2: 快速选择 思路和快排相同，但只需要对一边进行排序就行。 因为排序后pivot在整个list中的index是确定的，我们只需要比较K和index，如果K &amp;lt; index，那么说明要找的target num在左">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zjutmisleo.github.io/categories/essay/"/>
+  <link rel="canonical" href="https://zjutmisleo.github.io/2018/07/29/quick select & quick sort/"/>
 
 
 
@@ -134,7 +136,7 @@
   };
 </script>
 
-  <title>Category: essay | Leo_607</title>
+  <title>quick select & quick sort | Leo_607</title>
   
 
 
@@ -181,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,7 +244,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
@@ -283,113 +285,198 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>essay<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/29/quick select & quick sort/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/08/万历，姚贝娜和鱼/" itemprop="url">
-              
-                <span itemprop="name">万历和鱼</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">quick select & quick sort
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-08T14:52:35-04:00"
-              content="2018-07-08" >
-          07-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-29 16:20:31" itemprop="dateCreated datePublished" datetime="2018-07-29T16:20:31-04:00">2018-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-31 01:55:50" itemprop="dateModified" datetime="2018-07-31T01:55:50-04:00">2018-07-31</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/01/听雨/" itemprop="url">
-              
-                <span itemprop="name">听雨</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-01T18:52:43-04:00"
-              content="2018-07-01" >
-          07-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <p>最近看到FB有人被面了Kth smallest element，我也重新复习一下。</p>
+<p>解法1:</p>
+<p>开一个PriorityQueue，time complexity Nlog(K).</p>
+<p>解法2:</p>
+<p>快速选择</p>
+<p>思路和快排相同，但只需要对一边进行排序就行。</p>
+<p>因为排序后pivot在整个list中的index是确定的，我们只需要比较K和index，如果K &lt; index，那么说明要找的target num在左半部分，反之亦然。</p>
+<p>顺便也重新理一下一些基本的选择和排序算法。</p>
+<p>1.binary search，毕竟Jon Bentley说90%的程序员都写不对二分。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">		<span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>; <span class="comment">//avoid overflow</span></span><br><span class="line">		<span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">			left = mid + <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			right = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">//dont find</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/22/Minimum Spanning Tree/" rel="next" title="Minimum Spanning Tree & Union found">
+                <i class="fa fa-chevron-left"></i> Minimum Spanning Tree & Union found
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -626,6 +713,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 

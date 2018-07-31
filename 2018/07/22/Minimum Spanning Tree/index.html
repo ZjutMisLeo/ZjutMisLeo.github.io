@@ -108,23 +108,25 @@
 
 
 
-  <meta name="description" content="除了代码，还会写点别的东西">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leo_607">
-<meta property="og:url" content="https://zjutmisleo.github.io/categories/essay/index.html">
+  <meta name="description" content="今天老姐让我写最小生成树，憋了半天写不出来=，= 最骚的是kisday和我说他也不会写，我会信？ 现在认真学习了一遍，放个总结免得以后又忘了。虽然我隐隐觉得亚麻不会给我这个用的机会。 最小生成树：连通加权无向图中一棵权值最小的生成树。 A. Kruskal算法 （摘自维基百科）   步骤：   1.新建图G，G中拥有原图中相同的节点，但没有边   2.将原图中所有的边按权值从小到大排序   3.从">
+<meta name="keywords" content="算法,图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Minimum Spanning Tree &amp; Union found">
+<meta property="og:url" content="https://zjutmisleo.github.io/2018/07/22/Minimum Spanning Tree/index.html">
 <meta property="og:site_name" content="Leo_607">
-<meta property="og:description" content="除了代码，还会写点别的东西">
+<meta property="og:description" content="今天老姐让我写最小生成树，憋了半天写不出来=，= 最骚的是kisday和我说他也不会写，我会信？ 现在认真学习了一遍，放个总结免得以后又忘了。虽然我隐隐觉得亚麻不会给我这个用的机会。 最小生成树：连通加权无向图中一棵权值最小的生成树。 A. Kruskal算法 （摘自维基百科）   步骤：   1.新建图G，G中拥有原图中相同的节点，但没有边   2.将原图中所有的边按权值从小到大排序   3.从">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-29T22:46:47.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leo_607">
-<meta name="twitter:description" content="除了代码，还会写点别的东西">
+<meta name="twitter:title" content="Minimum Spanning Tree &amp; Union found">
+<meta name="twitter:description" content="今天老姐让我写最小生成树，憋了半天写不出来=，= 最骚的是kisday和我说他也不会写，我会信？ 现在认真学习了一遍，放个总结免得以后又忘了。虽然我隐隐觉得亚麻不会给我这个用的机会。 最小生成树：连通加权无向图中一棵权值最小的生成树。 A. Kruskal算法 （摘自维基百科）   步骤：   1.新建图G，G中拥有原图中相同的节点，但没有边   2.将原图中所有的边按权值从小到大排序   3.从">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zjutmisleo.github.io/categories/essay/"/>
+  <link rel="canonical" href="https://zjutmisleo.github.io/2018/07/22/Minimum Spanning Tree/"/>
 
 
 
@@ -134,7 +136,7 @@
   };
 </script>
 
-  <title>Category: essay | Leo_607</title>
+  <title>Minimum Spanning Tree & Union found | Leo_607</title>
   
 
 
@@ -181,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,7 +244,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
@@ -283,113 +285,200 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>essay<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/22/Minimum Spanning Tree/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/08/万历，姚贝娜和鱼/" itemprop="url">
-              
-                <span itemprop="name">万历和鱼</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Minimum Spanning Tree & Union found
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-08T14:52:35-04:00"
-              content="2018-07-08" >
-          07-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-22 00:10:05" itemprop="dateCreated datePublished" datetime="2018-07-22T00:10:05-04:00">2018-07-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-29 18:46:47" itemprop="dateModified" datetime="2018-07-29T18:46:47-04:00">2018-07-29</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/01/听雨/" itemprop="url">
-              
-                <span itemprop="name">听雨</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-01T18:52:43-04:00"
-              content="2018-07-01" >
-          07-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <p>今天老姐让我写最小生成树，憋了半天写不出来=，= 最骚的是kisday和我说他也不会写，我会信？</p>
+<p>现在认真学习了一遍，放个总结免得以后又忘了。虽然我隐隐觉得亚麻不会给我这个用的机会。</p>
+<p>最小生成树：连通加权无向图中一棵权值最小的生成树。</p>
+<p>A. Kruskal算法 （摘自维基百科）<br>   步骤：<br>   1.新建图G，G中拥有原图中相同的节点，但没有边<br>   2.将原图中所有的边按权值从小到大排序<br>   3.从权值最小的边开始，如果这条边连接的两个节点于图G中不在同一个连通分量中（说人话就是如果成环就不选这条边），则添加这条边到图G中<br>   4.重复3，直至图G中所有的节点都在同一个连通分量中（所有点都用完了）</p>
+<p>   证明：<br>   反证法。如果这颗树不是最小生成树，那么一定有一条不在这个树中的边。这条边必定会和其中某些变成环，但环中别的边都是权值最小的，所以如果使用这条边而删去其他的边，那么整颗树的权值就不是minimum了。</p>
+<p>   注意：<br>   判断连接的两点是否在联通分量中（会不会成环）需要使用并查集。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/图/" rel="tag"># 图</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/15/Java lambda expressions/" rel="next" title="Java lambda expressions">
+                <i class="fa fa-chevron-left"></i> Java lambda expressions
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/29/quick select & quick sort/" rel="prev" title="quick select & quick sort">
+                quick select & quick sort <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -626,6 +715,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
