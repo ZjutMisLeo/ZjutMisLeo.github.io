@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/29/quick select & quick sort/">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/08/08/287. Find the Duplicate Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leo_607">
@@ -323,8 +323,387 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/29/quick select & quick sort/" itemprop="url">
-                  search & sort
+                <a class="post-title-link" href="/2018/08/08/287. Find the Duplicate Number/" itemprop="url">
+                  287. Find the Duplicate Number
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-08 17:47:58 / Modified: 17:49:04" itemprop="dateCreated datePublished" datetime="2018-08-08T17:47:58-04:00">2018-08-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/08/06/Substring Search Problem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/06/Substring Search Problem/" itemprop="url">
+                  Substring Search Problem
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-06 20:01:28" itemprop="dateCreated datePublished" datetime="2018-08-06T20:01:28-04:00">2018-08-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-07 21:58:50" itemprop="dateModified" datetime="2018-08-07T21:58:50-04:00">2018-08-07</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/刷题总结/" itemprop="url" rel="index"><span itemprop="name">刷题总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>刷面经时候看到，正好总结一下这一类substring search问题，discuss里的template给的很好，不过我觉得还是自己手写过一遍比较好。笨办法帮助理解，毕竟自己不是聪明人。</p>
+<h1 id="LC76-Minimum-Window-Substring"><a href="#LC76-Minimum-Window-Substring" class="headerlink" title="LC76. Minimum Window Substring"></a>LC76. Minimum Window Substring</h1><pre><code>Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+Example:
+Input: S = &quot;ADOBECODEBANC&quot;, T = &quot;ABC&quot;
+Output: &quot;BANC&quot;
+</code></pre><ol>
+<li><p>开一个map（可以数组或者HashMap）用来check S中的字母是否存在于T中。</p>
+</li>
+<li><p>参数含义：</p>
+<pre><code>count 用于判断是否找到了一组解。if (count == 0) 就说明T中的所有字母已在当前指针扫描范围被全部cover。
+      初始化为map.size(), 因为T中可能有重复元素，所以用map.size()。count的增加取决于map中value是否为0。
+left  左指针 
+right 右指针
+head  用来maintain每次找到合法解后左指针的位置。
+min   当前的最小长度，初始化为Integer.MAX_VALUE
+</code></pre></li>
+<li><p>按照代码想法手动过一遍test case: “cabwefgewcwaefgcf”，”cae”</p>
+<pre><code>round 1:
+substring is cabwe
+right = 4, 此时count == 0，left指针开始move，此时left = 0, min = 6, head = 0
+之后left和right分别自增，right = 5, left = 1;
+
+round 2:
+因为c在round 1中被重新加到map中，下一步当right扫到c时，count == 0, 扫描中还会扫到一个e，使其在map中的val - 1
+substring is abwefgewc
+right = 9, 此时count == 0，left指针开始move，此时left = 1, right - left + 1 &gt; min。head和min不变。
+之后left和right分别自增，right = 10, left = 2;
+
+round 3:
+substring is efgewcwa
+right = 11, 此时count == 0， left指针开始move，扫到第一个e，发现map.get(e) == -1, 遂val+1，但map.get(e) 并没有大于0，count不变仍为0。所以while loop中left指针继续向右move，直到发现第二个e为止。
+substring is ewcwa
+right = 11, count == 0, left = 7, right - left + 1 &lt; min, min = 5, head = 7;
+
+round 4:
+substring is cwae
+right = 12, count == 0, left = 9, right - left + 1 &lt; min, min = 4, head = 9;
+找到最优解。
+
+round 5:
+sunstring is aefgc
+right - left + 1 &gt; min, pass
+
+扫描完毕
+</code></pre></li>
+<li><p>code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">minWindow</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : t.toCharArray()) &#123;</span><br><span class="line">            map.put(c, map.getOrDefault(c, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, count = map.size(), head = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.length()) &#123;</span><br><span class="line">            <span class="keyword">char</span> r = s.charAt(right);</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(r)) &#123;</span><br><span class="line">                map.put(r, map.get(r) - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (map.get(r) == <span class="number">0</span>) &#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">char</span> l = s.charAt(left);</span><br><span class="line">                <span class="keyword">if</span> (map.containsKey(l)) &#123;</span><br><span class="line">                    map.put(l, map.get(l) + <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span> (map.get(l) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        count++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (right - left + <span class="number">1</span> &lt; min) &#123;</span><br><span class="line">                    head = left;</span><br><span class="line">                    min = right - left + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min == Integer.MAX_VALUE ? <span class="string">""</span> : s.substring(head, head + min);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="438-Find-All-Anagrams-in-a-String"><a href="#438-Find-All-Anagrams-in-a-String" class="headerlink" title="438. Find All Anagrams in a String"></a>438. Find All Anagrams in a String</h1><pre><code>Given a string s and a non-empty string p, find all the start indices of p&apos;s anagrams in s.
+Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+The order of output does not matter.
+
+Example 1:
+Input:
+s: &quot;cbaebabacd&quot; p: &quot;abc&quot;
+Output:
+[0, 6]
+
+Explanation:
+The substring with start index = 0 is &quot;cba&quot;, which is an anagram of &quot;abc&quot;.
+The substring with start index = 6 is &quot;bac&quot;, which is an anagram of &quot;abc&quot;.
+</code></pre><p>上一题是找subsequence，但是通过check right - left + 1 == p.length()，就能把代码转化为找substring。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findAnagrams</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : p.toCharArray()) &#123;</span><br><span class="line">            map.put(c, map.getOrDefault(c, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, head = <span class="number">0</span>, count = map.size();</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.length()) &#123;</span><br><span class="line">            <span class="keyword">char</span> r = s.charAt(right);</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(r)) &#123;</span><br><span class="line">                map.put(r, map.get(r) - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (map.get(r) == <span class="number">0</span>) &#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">char</span> l = s.charAt(left);</span><br><span class="line">                <span class="keyword">if</span> (map.containsKey(l)) &#123;</span><br><span class="line">                    map.put(l, map.get(l) + <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span> (map.get(l) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        count++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (right - left + <span class="number">1</span> == p.length()) &#123;</span><br><span class="line">                    head = left;</span><br><span class="line">                    list.add(head);</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-Longest-Substring-Without-Repeating-Characters"><a href="#3-Longest-Substring-Without-Repeating-Characters" class="headerlink" title="3. Longest Substring Without Repeating Characters"></a>3. Longest Substring Without Repeating Characters</h1><pre><code>Given a string, find the length of the longest substring without repeating characters.
+
+Examples:
+Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.
+Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.
+Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
+</code></pre><p>思路是一样的，右指针发现重复的那个数之后（map.get(r) &gt; 1），左指针开始扫描，直到找到和当前right指针对应的元素相同的元素。<br>此时左指针左边的部分不会被用于之后的寻找最优解的过程中，在map中对应的val也为0.<br>我在这里用了boolean found 来作为判断的条件是否进入左指针寻值的while loop，因为使用count会让人有点迷惑。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.length()) &#123;</span><br><span class="line">            <span class="keyword">char</span> r = s.charAt(right);</span><br><span class="line">            map.put(r, map.getOrDefault(r, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (map.get(r) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                found = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (found) &#123;</span><br><span class="line">                <span class="keyword">char</span> l = s.charAt(left);</span><br><span class="line">                <span class="keyword">if</span> (map.get(l) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                    found = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                map.put(l, map.get(l) - <span class="number">1</span>);</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//System.out.println("right is " + right + " left is " + left);</span></span><br><span class="line">            len = Math.max(right - left + <span class="number">1</span>, len);</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/29/Search & Sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/29/Search & Sort/" itemprop="url">
+                  Search & Sort
                 </a>
               
             
@@ -367,7 +746,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-31 01:58:41" itemprop="dateModified" datetime="2018-07-31T01:58:41-04:00">2018-07-31</time>
+                <time title="Modified: 2018-08-06 20:02:03" itemprop="dateModified" datetime="2018-08-06T20:02:03-04:00">2018-08-06</time>
               
             
           </span>
@@ -404,14 +783,15 @@
           
             <p>最近看到FB有人被面了Kth smallest element，我也重新复习一下。</p>
 <p>解法1:</p>
-<p>开一个PriorityQueue，time complexity Nlog(K).</p>
+<p>开一个PriorityQueue，time complexity is Nlog(K).</p>
 <p>解法2:</p>
-<p>快速选择</p>
+<p>quick select</p>
 <p>思路和快排相同，但只需要对一边进行排序就行。</p>
 <p>因为排序后pivot在整个list中的index是确定的，我们只需要比较K和index，如果K &lt; index，那么说明要找的target num在左半部分，反之亦然。</p>
 <p>顺便也重新理一下一些基本的选择和排序算法。</p>
 <p>1.binary search，毕竟Jon Bentley说90%的程序员都写不对二分。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">		<span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>; <span class="comment">//avoid overflow</span></span><br><span class="line">		<span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">			left = mid + <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			right = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">//dont find</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">	    <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>; <span class="comment">//avoid overflow</span></span><br><span class="line">		<span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">			left = mid + <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			right = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">//dont find</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Variant: LC 33 - Search in Rotated Sorted Array.<br>         LC 153 - Find Minimum in Rotated Sorted Array.<br>         Lc </p>
 
           
         
@@ -528,7 +908,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-29 18:46:47" itemprop="dateModified" datetime="2018-07-29T18:46:47-04:00">2018-07-29</time>
+                <time title="Modified: 2018-08-06 20:02:10" itemprop="dateModified" datetime="2018-08-06T20:02:10-04:00">2018-08-06</time>
               
             
           </span>
@@ -564,9 +944,9 @@
         
           
             <p>今天老姐让我写最小生成树，憋了半天写不出来=，= 最骚的是kisday和我说他也不会写，我会信？</p>
-<p>现在认真学习了一遍，放个总结免得以后又忘了。虽然我隐隐觉得亚麻不会给我这个用的机会。</p>
+<p>现在认真学习了一遍，放个总结免得以后又忘了。虽然我隐隐觉得亚麻不会给我这个用的机会。// 确实没给我OA，我可透您马。</p>
 <p>最小生成树：连通加权无向图中一棵权值最小的生成树。</p>
-<p>A. Kruskal算法 （摘自维基百科）<br>   步骤：<br>   1.新建图G，G中拥有原图中相同的节点，但没有边<br>   2.将原图中所有的边按权值从小到大排序<br>   3.从权值最小的边开始，如果这条边连接的两个节点于图G中不在同一个连通分量中（说人话就是如果成环就不选这条边），则添加这条边到图G中<br>   4.重复3，直至图G中所有的节点都在同一个连通分量中（所有点都用完了）</p>
+<p>A. Kruskal算法 （摘自维基百科）<br>   步骤：<br>   1.新建图G，G中拥有原图中相同的节点，但没有边<br>   2.将原图中所有的边按权值从小到大排序<br>   3.从权值最小的边开始，如果这条边连接的两个节点于图G中不在同一个连通分量中（说人话：如果成环就不选这条边），则添加这条边到图G中<br>   4.重复3，直至图G中所有的节点都在同一个连通分量中（所有点都用完了）</p>
 <p>   证明：<br>   反证法。如果这颗树不是最小生成树，那么一定有一条不在这个树中的边。这条边必定会和其中某些变成环，但环中别的边都是权值最小的，所以如果使用这条边而删去其他的边，那么整颗树的权值就不是minimum了。</p>
 <p>   注意：<br>   判断连接的两点是否在联通分量中（会不会成环）需要使用并查集。</p>
 
@@ -1348,12 +1728,24 @@
                 
               
 
-              <time title="Created: 2018-07-05 01:58:04 / Modified: 02:29:17" itemprop="dateCreated datePublished" datetime="2018-07-05T01:58:04-04:00">2018-07-05</time>
+              <time title="Created: 2018-07-05 01:58:04" itemprop="dateCreated datePublished" datetime="2018-07-05T01:58:04-04:00">2018-07-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-31 13:53:50" itemprop="dateModified" datetime="2018-07-31T13:53:50-04:00">2018-07-31</time>
               
             
           </span>
@@ -1616,362 +2008,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/01/133. Clone Graph/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leo_607">
-      <meta itemprop="description" content="除了代码，还会写点别的东西">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo_607">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/01/133. Clone Graph/" itemprop="url">
-                  133. Clone Graph
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-01 20:21:03" itemprop="dateCreated datePublished" datetime="2018-07-01T20:21:03-04:00">2018-07-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-07-05 02:29:20" itemprop="dateModified" datetime="2018-07-05T02:29:20-04:00">2018-07-05</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>This is the BFS + Queue solution, use map to keep original nodes and copied nodes.<br>Map can also avoid loop.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for undirected graph.</span></span><br><span class="line"><span class="comment"> * class UndirectedGraphNode &#123;</span></span><br><span class="line"><span class="comment"> *     int label;</span></span><br><span class="line"><span class="comment"> *     List&lt;UndirectedGraphNode&gt; neighbors;</span></span><br><span class="line"><span class="comment"> *     UndirectedGraphNode(int x) &#123; label = x; neighbors = new ArrayList&lt;UndirectedGraphNode&gt;(); &#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> UndirectedGraphNode <span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span> node;</span><br><span class="line">        UndirectedGraphNode copy = <span class="keyword">new</span> UndirectedGraphNode(node.label);</span><br><span class="line">        HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Queue&lt;UndirectedGraphNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        map.put(node, copy);</span><br><span class="line">        q.offer(node);</span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">            UndirectedGraphNode cur = q.poll();</span><br><span class="line">            <span class="keyword">for</span> (UndirectedGraphNode n : cur.neighbors) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!map.containsKey(n)) &#123;</span><br><span class="line">                    map.put(n, <span class="keyword">new</span> UndirectedGraphNode(n.label));</span><br><span class="line">                    q.offer(n);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// add neighbors to the copied node</span></span><br><span class="line">                <span class="comment">// map.get(cur) -&gt; copied node of cur</span></span><br><span class="line">                <span class="comment">// map.get(n) -&gt; neighbors of copied node </span></span><br><span class="line">                map.get(cur).neighbors.add(map.get(n));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> copy;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/01/听雨/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leo_607">
-      <meta itemprop="description" content="除了代码，还会写点别的东西">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo_607">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/01/听雨/" itemprop="url">
-                  听雨
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-01 18:52:43" itemprop="dateCreated datePublished" datetime="2018-07-01T18:52:43-04:00">2018-07-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-07-08 14:54:09" itemprop="dateModified" datetime="2018-07-08T14:54:09-04:00">2018-07-08</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">essay</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>第一次知道竹山词，是高中时候许南翔一笔笔写在黑板上，说你们现在不懂，觉得这词很一般，将来就懂了。</p>
-<p>虞美人这个词牌，历来最推崇不过李煜的“春花秋月何时了，往事知多少”。但我私心里还是更喜欢蒋捷的这首听雨。</p>
-<p>我想许南翔当年给我们上课时，应该和我现在是差不多的年纪。过了弱冠之年，离而立却还有一点距离，对人生这个事刚刚有了一点自己的理解。这个世界的万般头绪铺开在我的面前，少年意气开始一点点消减。</p>
-<p>开始有了一些却道天凉好个秋的滋味。</p>
-<p>晚上一个人在bonsai的吧台吃冷饭团，一边感受着突然而至的阵雨。没有什么悲欢离合也无情。</p>
-<p>只有特别深的孤独。</p>
-<p>一个人走在回出租房的路上，穿过不同颜色的皮肤，感受到夹带着雨丝的冷风。</p>
-<p>我突然开始怀念家乡闷热的雨季，那潮湿绵密的水汽将我包裹的感觉，那江南水乡特有的味道。</p>
-<p>那味道是妈丢给我的毛巾的香味，是爸端出的来的饭菜的香味，是家里放久了的家具，在梅雨季节散发出来的一点点霉味。</p>
-<p>雨声夹带着电视节目的人声，混合着小区外远远传来的几句咒骂。</p>
-<p>而现在雨声里只参杂着键盘敲击的哒哒声。</p>
-<p>十几岁的我不明白雨水滴落地面的声音怎么能用得上听，但现在知道了。原来只有生活并不一帆风顺的人，才能听到雨的声音。</p>
-<p>我合上电脑，看着窗外的雨帘中渐渐显出远处方尖碑的轮廓，若隐若现，居然像极了鼓楼。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2012,7 +2055,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2029,7 +2072,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -2052,7 +2097,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
