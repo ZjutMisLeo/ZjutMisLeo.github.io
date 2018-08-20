@@ -304,6 +304,312 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/08/18/Trie/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/18/Trie/" itemprop="url">
+                  Trie Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-18 17:25:18" itemprop="dateCreated datePublished" datetime="2018-08-18T17:25:18-07:00">2018-08-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-20 00:39:29" itemprop="dateModified" datetime="2018-08-20T00:39:29-07:00">2018-08-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>刷题刷到要用trie的题又写不出了。。把trie好好写一写。<br><a href="https://leetcode.com/articles/implement-trie-prefix-tree/" target="_blank" rel="noopener">https://leetcode.com/articles/implement-trie-prefix-tree/</a></p>
+<p>This explanation is so fucking amazing. LC article is so qiang!</p>
+<h1 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h1><p>Trie(prefix tree)会被用于：</p>
+<ol>
+<li>自动补全</li>
+<li>拼写检查</li>
+<li>IP routing</li>
+<li>T9 predictive text（九宫格输入法文本预测）</li>
+</ol>
+<p>why trie outperforms hash table, is that as hash table increases in size, there are lots of hash collisions and the search time complexity could deteriorate to O(n), where nn is the number of keys inserted. Trie could use less space compared to Hash Table when storing many keys with the same prefix. In this case using trie has only O(m) time complexity, where mm is the key length. Searching for a key in a balanced tree costs O(mlog n) time complexity.</p>
+<h1 id="TrieNode-structure"><a href="#TrieNode-structure" class="headerlink" title="TrieNode structure"></a>TrieNode structure</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TrieNode[] child;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> N = <span class="number">26</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isWord = <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TrieNode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        child = <span class="keyword">new</span> TrieNode(N);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> child[ch - <span class="string">'a'</span>] != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> TrieNode <span class="title">get</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> child[ch - <span class="string">'a'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">char</span> c, TrieNode node)</span> </span>&#123;</span><br><span class="line">        child[c - <span class="string">'a'</span>] = node;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isWord</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isWord;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWord</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        isWord = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/08/16/Back Tracking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/16/Back Tracking/" itemprop="url">
+                  Back Tracking
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-16 17:23:39 / Modified: 18:00:08" itemprop="dateCreated datePublished" datetime="2018-08-16T17:23:39-07:00">2018-08-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>他乡逢七夕,旅馆益羁愁。</p>
+<p>不见穿针妇,空怀故国楼。</p>
+<p>绪风初减热,新月始登秋。</p>
+<p>谁忍窥河汉,迢迢问斗牛。</p>
+<p>孟浩然写的好啊，以前只知道飞行迢迢暗度，轻罗小扇扑流萤</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/08/08/287. Find the Duplicate Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -350,12 +656,24 @@
                 
               
 
-              <time title="Created: 2018-08-08 17:47:58 / Modified: 17:49:04" itemprop="dateCreated datePublished" datetime="2018-08-08T17:47:58-04:00">2018-08-08</time>
+              <time title="Created: 2018-08-08 17:47:58" itemprop="dateCreated datePublished" datetime="2018-08-08T17:47:58-07:00">2018-08-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-09 18:50:32" itemprop="dateModified" datetime="2018-08-09T18:50:32-07:00">2018-08-09</time>
               
             
           </span>
@@ -390,7 +708,12 @@
       
         
           
-            
+            <p>今天收了封FB内推据信，我和kisday都想不明白问题在哪。。感觉是真的要报班了。。至少保证我有个面试吧，不然题刷的再多有什么用</p>
+<p><a href="http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;tid=176498&amp;extra=page%3D1%26filter%3Dsortid%26sortid%3D192%26sortid%3D192" target="_blank" rel="noopener">http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;tid=176498&amp;extra=page%3D1%26filter%3Dsortid%26sortid%3D192%26sortid%3D192</a></p>
+<p>在地里看了这个帖子，难受的一批。难受就对了，好走的都是下坡路。</p>
+<p>但是题还是要刷。</p>
+<p>这题有要求，不能modify原数组，因此不能像442题那样根据下标取负。<br>要利用duplicate num这个特点。在该数组中两个不同的index会指向同一个num。<br>因此考虑做一个num -&gt; index的连接，那么该链表成环。问题转化为快慢指针链表找环。</p>
+
           
         
       
@@ -489,7 +812,7 @@
                 
               
 
-              <time title="Created: 2018-08-06 20:01:28" itemprop="dateCreated datePublished" datetime="2018-08-06T20:01:28-04:00">2018-08-06</time>
+              <time title="Created: 2018-08-06 20:01:28" itemprop="dateCreated datePublished" datetime="2018-08-06T20:01:28-07:00">2018-08-06</time>
             
 
             
@@ -506,7 +829,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-07 21:58:50" itemprop="dateModified" datetime="2018-08-07T21:58:50-04:00">2018-08-07</time>
+                <time title="Modified: 2018-08-16 23:36:49" itemprop="dateModified" datetime="2018-08-16T23:36:49-07:00">2018-08-16</time>
               
             
           </span>
@@ -559,7 +882,7 @@
       
         
           
-            <p>刷面经时候看到，正好总结一下这一类substring search问题，discuss里的template给的很好，不过我觉得还是自己手写过一遍比较好。笨办法帮助理解，毕竟自己不是聪明人。</p>
+            <p>刷面经时候看到，正好总结一下这一类substring search问题（其实本质逻辑是滑窗），discuss里的template给的很好，不过我觉得还是自己手写过一遍比较好。笨办法帮助理解，毕竟自己不是聪明人。</p>
 <h1 id="LC76-Minimum-Window-Substring"><a href="#LC76-Minimum-Window-Substring" class="headerlink" title="LC76. Minimum Window Substring"></a>LC76. Minimum Window Substring</h1><pre><code>Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
 Example:
 Input: S = &quot;ADOBECODEBANC&quot;, T = &quot;ABC&quot;
@@ -729,7 +1052,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
               
 
-              <time title="Created: 2018-07-29 16:20:31" itemprop="dateCreated datePublished" datetime="2018-07-29T16:20:31-04:00">2018-07-29</time>
+              <time title="Created: 2018-07-29 16:20:31" itemprop="dateCreated datePublished" datetime="2018-07-29T16:20:31-07:00">2018-07-29</time>
             
 
             
@@ -746,7 +1069,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-06 20:02:03" itemprop="dateModified" datetime="2018-08-06T20:02:03-04:00">2018-08-06</time>
+                <time title="Modified: 2018-08-17 01:36:00" itemprop="dateModified" datetime="2018-08-17T01:36:00-07:00">2018-08-17</time>
               
             
           </span>
@@ -781,7 +1104,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
       
         
           
-            <p>最近看到FB有人被面了Kth smallest element，我也重新复习一下。</p>
+            <p>最近看到FB有人被面了Kth smallest element，我也重新复习一下。// 白复习</p>
 <p>解法1:</p>
 <p>开一个PriorityQueue，time complexity is Nlog(K).</p>
 <p>解法2:</p>
@@ -789,9 +1112,26 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
 <p>思路和快排相同，但只需要对一边进行排序就行。</p>
 <p>因为排序后pivot在整个list中的index是确定的，我们只需要比较K和index，如果K &lt; index，那么说明要找的target num在左半部分，反之亦然。</p>
 <p>顺便也重新理一下一些基本的选择和排序算法。</p>
-<p>1.binary search，毕竟Jon Bentley说90%的程序员都写不对二分。</p>
+<h1 id="binary-search"><a href="#binary-search" class="headerlink" title="binary search"></a>binary search</h1><p>Jon Bentley说90%的程序员都写不对二分, 我个人觉得写二分最好就用一个模板。<br>另外这个帖子真的讲的非常非常好。<a href="http://www.1point3acres.com/bbs/thread-432793-1-1.html" target="_blank" rel="noopener">http://www.1point3acres.com/bbs/thread-432793-1-1.html</a></p>
+<p>当搜索到达right - left == 1的时候，这时候mid是等于left的。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">	    <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>; <span class="comment">//avoid overflow</span></span><br><span class="line">		<span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">			left = mid + <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			right = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">//dont find</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Variant: LC 33 - Search in Rotated Sorted Array.<br>         LC 153 - Find Minimum in Rotated Sorted Array.<br>         Lc </p>
+<h2 id="69-Sqrt-x"><a href="#69-Sqrt-x" class="headerlink" title="69. Sqrt(x)"></a>69. Sqrt(x)</h2><pre><code>Implement int sqrt(int x).
+Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
+Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
+
+Example 1 Input: 4 Output: 2
+Example 2 Input: 8 Output: 2
+Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
+</code></pre><p>这题首先要避免越界。因此mid * mid &gt; x 应该写成 mid &gt; x / mid.<br>这时候就要避免mid = 0。<br>当right - left = 1时，mid = left（right = 1, left = 0, mid = 0）所以left不能从0开始。<br>所以搜索范围确定为1 ~ x（x的平方必定大于x）</p>
+<p>接下来要处理的问题是，如果找不到target sqrt，该怎么返回值。<br>用7举例<br>搜索区间到达[2,3]时，mid = 2, left = mid + 1 = 3.<br>搜索区间到达[3,3]时，mid = 3, left = 3, right = 3 - 1 = 2。跳出循环。<br>可以发现mid其实是刚好平方后大于x的那个值，因此我们返回的right就是解。</p>
+<p>这时候要考虑下Corner Case，比如input是0或者2147483647。逻辑走完发现没啥问题。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;<span class="comment">// 0 9 </span></span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">1</span>, r = x;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (mid &gt; x / mid) &#123;</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mid == x / mid) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="50-Pow-x-n"><a href="#50-Pow-x-n" class="headerlink" title="50. Pow(x, n)"></a>50. Pow(x, n)</h2><pre><code>Implement pow(x, n), which calculates x raised to the power n (xn).
+Example 1: Input: 2.00000, 10 Output: 1024.0000
+Example 2: Input: 2.10000, 3  Output: 9.2610
+Example 3: Input: 2.00000, -4 Output: 0.2500 Explanation: 2-2 = 1/22 = 1/4 = 0.25
+</code></pre><p>很不喜欢这题，因为conner case太烦了。虽然不是binary seach但是还是用上了二分的想法，所以也放进来了。<br>general idea is loop，蛤无疑问（混入了奇怪的东西）TLE。<br>因为 x的n次方 = x的n/2次方 * x的n/2次方，所以recursion就出来了。odd就是拿一个出来再/2，很容易想到</p>
+<p>然后是处理n &lt; 0的情况，就是进入递归前把n取反，x = 1/x。</p>
+<p>这里出现问题，if n = Inetegr.MIN_VALUE，取反就overflow，因此要做一个处理。<br>注意处理n之后也不要忘了x，因为n从-2147483648 变成了 214748364747，正负会有影响：x = x &gt; 0 ? 1.0 / x : -(1.0 / x);<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (n == Integer.MIN_VALUE) &#123;</span><br><span class="line">                n = -(n + <span class="number">1</span>);</span><br><span class="line">                x = x &gt; <span class="number">0</span> ? <span class="number">1.0</span> / x : -(<span class="number">1.0</span> / x);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                n = -n;</span><br><span class="line">                x = <span class="number">1.0</span> / x;</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> myPow(x * x, n / <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> x * myPow(x * x, n /<span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -891,7 +1231,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
               
 
-              <time title="Created: 2018-07-22 00:10:05" itemprop="dateCreated datePublished" datetime="2018-07-22T00:10:05-04:00">2018-07-22</time>
+              <time title="Created: 2018-07-22 00:10:05" itemprop="dateCreated datePublished" datetime="2018-07-22T00:10:05-07:00">2018-07-22</time>
             
 
             
@@ -908,7 +1248,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-06 20:02:10" itemprop="dateModified" datetime="2018-08-06T20:02:10-04:00">2018-08-06</time>
+                <time title="Modified: 2018-08-06 17:02:10" itemprop="dateModified" datetime="2018-08-06T17:02:10-07:00">2018-08-06</time>
               
             
           </span>
@@ -1048,7 +1388,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
               
 
-              <time title="Created: 2018-07-15 17:10:59" itemprop="dateCreated datePublished" datetime="2018-07-15T17:10:59-04:00">2018-07-15</time>
+              <time title="Created: 2018-07-15 17:10:59" itemprop="dateCreated datePublished" datetime="2018-07-15T17:10:59-07:00">2018-07-15</time>
             
 
             
@@ -1065,7 +1405,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-17 21:33:53" itemprop="dateModified" datetime="2018-07-17T21:33:53-04:00">2018-07-17</time>
+                <time title="Modified: 2018-07-17 18:33:53" itemprop="dateModified" datetime="2018-07-17T18:33:53-07:00">2018-07-17</time>
               
             
           </span>
@@ -1202,7 +1542,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
               
 
-              <time title="Created: 2018-07-09 00:12:29" itemprop="dateCreated datePublished" datetime="2018-07-09T00:12:29-04:00">2018-07-09</time>
+              <time title="Created: 2018-07-09 00:12:29" itemprop="dateCreated datePublished" datetime="2018-07-09T00:12:29-07:00">2018-07-09</time>
             
 
             
@@ -1219,7 +1559,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-29 18:46:47" itemprop="dateModified" datetime="2018-07-29T18:46:47-04:00">2018-07-29</time>
+                <time title="Modified: 2018-07-29 15:46:47" itemprop="dateModified" datetime="2018-07-29T15:46:47-07:00">2018-07-29</time>
               
             
           </span>
@@ -1371,7 +1711,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
               
 
-              <time title="Created: 2018-07-08 14:52:35" itemprop="dateCreated datePublished" datetime="2018-07-08T14:52:35-04:00">2018-07-08</time>
+              <time title="Created: 2018-07-08 14:52:35" itemprop="dateCreated datePublished" datetime="2018-07-08T14:52:35-07:00">2018-07-08</time>
             
 
             
@@ -1388,7 +1728,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-22 00:27:50" itemprop="dateModified" datetime="2018-07-22T00:27:50-04:00">2018-07-22</time>
+                <time title="Modified: 2018-07-21 21:27:50" itemprop="dateModified" datetime="2018-07-21T21:27:50-07:00">2018-07-21</time>
               
             
           </span>
@@ -1559,7 +1899,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
               
 
-              <time title="Created: 2018-07-05 02:25:21" itemprop="dateCreated datePublished" datetime="2018-07-05T02:25:21-04:00">2018-07-05</time>
+              <time title="Created: 2018-07-05 02:25:21" itemprop="dateCreated datePublished" datetime="2018-07-05T02:25:21-07:00">2018-07-05</time>
             
 
             
@@ -1576,7 +1916,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-29 18:46:47" itemprop="dateModified" datetime="2018-07-29T18:46:47-04:00">2018-07-29</time>
+                <time title="Modified: 2018-07-29 15:46:47" itemprop="dateModified" datetime="2018-07-29T15:46:47-07:00">2018-07-29</time>
               
             
           </span>
@@ -1630,347 +1970,6 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
         
           
             
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/05/129. Sum Root to Leaf Numbers/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leo_607">
-      <meta itemprop="description" content="除了代码，还会写点别的东西">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo_607">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/05/129. Sum Root to Leaf Numbers/" itemprop="url">
-                  129. Sum Root to Leaf Numbers
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-05 01:58:04" itemprop="dateCreated datePublished" datetime="2018-07-05T01:58:04-04:00">2018-07-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-07-31 13:53:50" itemprop="dateModified" datetime="2018-07-31T13:53:50-04:00">2018-07-31</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>A binary tree question.</p>
-<p>The general ieda is using preorder traversal in recursion way. Iterative solution is also accepted.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNumbers</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        dfs(root, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode node, <span class="keyword">int</span> cur)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        cur = cur * <span class="number">10</span> + node.val;</span><br><span class="line">        <span class="keyword">if</span> (node.left == <span class="keyword">null</span> &amp;&amp; node.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            sum += cur;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) dfs(node.left, cur);</span><br><span class="line">        <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) dfs(node.right, cur);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">iterative</span><span class="params">(TreeNode root)</span> </span>&#123;<span class="comment">// use two stacks to keep nodes and current sum</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        Stack&lt;Integer&gt; sum = <span class="keyword">new</span> Stack&lt;&gt;(); </span><br><span class="line">        stack.push(root);</span><br><span class="line">        sum.push(root.val);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">            TreeNode node = stack.pop();</span><br><span class="line">            <span class="keyword">int</span> cur = sum.pop();</span><br><span class="line">            <span class="keyword">if</span> (node.left == <span class="keyword">null</span> &amp;&amp; node.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">                res += cur;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(node.right);</span><br><span class="line">                sum.push(cur * <span class="number">10</span> + node.right.val);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(node.left);</span><br><span class="line">                sum.push(cur * <span class="number">10</span> + node.left.val);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/01/863. All Nodes Distance K in Binary Tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leo_607">
-      <meta itemprop="description" content="除了代码，还会写点别的东西">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo_607">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/01/863. All Nodes Distance K in Binary Tree/" itemprop="url">
-                  863. All Nodes Distance K in Binary Tree
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-01 22:15:18" itemprop="dateCreated datePublished" datetime="2018-07-01T22:15:18-04:00">2018-07-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-07-02 19:22:24" itemprop="dateModified" datetime="2018-07-02T19:22:24-04:00">2018-07-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Use HashMap，先用bfs或dfs将树变成一个图，之后根据target node的neighbors进行逐层搜索，直到distance == K。<br>通过HashSet avoid visited nodes。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Map&lt;TreeNode, HashSet&lt;TreeNode&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">distanceK</span><span class="params">(TreeNode root, TreeNode target, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> list;</span><br><span class="line">        buildMap(root);</span><br><span class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        q.offer(target);</span><br><span class="line">        Set&lt;TreeNode&gt; visited = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        visited.add(target);</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> dis = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> len = q.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> size = <span class="number">0</span>; size &lt; len; size++) &#123;</span><br><span class="line">                TreeNode cur = q.poll();</span><br><span class="line">                <span class="keyword">if</span> (dis == K) &#123;</span><br><span class="line">                    list.add(cur.val);</span><br><span class="line">                    found = <span class="keyword">true</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!map.get(cur).isEmpty()) &#123;</span><br><span class="line">                        <span class="keyword">for</span> (TreeNode t : map.get(cur)) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (!visited.contains(t)) &#123;</span><br><span class="line">                                q.offer(t);</span><br><span class="line">                                visited.add(t);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (found) <span class="keyword">return</span> list;</span><br><span class="line">            dis++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildMap</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        q.offer(node);</span><br><span class="line">        map.put(node, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">            TreeNode cur = q.poll();</span><br><span class="line">            <span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                map.put(cur.left, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">                map.get(cur).add(cur.left);</span><br><span class="line">                map.get(cur.left).add(cur);</span><br><span class="line">                q.offer(cur.left);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                map.put(cur.right, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">                map.get(cur).add(cur.right);</span><br><span class="line">                map.get(cur.right).add(cur);</span><br><span class="line">                q.offer(cur.right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
           
         
       
@@ -2055,7 +2054,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2213,6 +2212,9 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
 
 
 
+  
+  
+
 
 
 
@@ -2236,6 +2238,16 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
   
 
 

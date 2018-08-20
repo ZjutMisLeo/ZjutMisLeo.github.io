@@ -304,6 +304,347 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/05/129. Sum Root to Leaf Numbers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/05/129. Sum Root to Leaf Numbers/" itemprop="url">
+                  129. Sum Root to Leaf Numbers
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-05 01:58:04" itemprop="dateCreated datePublished" datetime="2018-07-05T01:58:04-07:00">2018-07-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-31 10:53:50" itemprop="dateModified" datetime="2018-07-31T10:53:50-07:00">2018-07-31</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>A binary tree question.</p>
+<p>The general ieda is using preorder traversal in recursion way. Iterative solution is also accepted.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNumbers</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        dfs(root, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode node, <span class="keyword">int</span> cur)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        cur = cur * <span class="number">10</span> + node.val;</span><br><span class="line">        <span class="keyword">if</span> (node.left == <span class="keyword">null</span> &amp;&amp; node.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            sum += cur;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) dfs(node.left, cur);</span><br><span class="line">        <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) dfs(node.right, cur);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">iterative</span><span class="params">(TreeNode root)</span> </span>&#123;<span class="comment">// use two stacks to keep nodes and current sum</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        Stack&lt;Integer&gt; sum = <span class="keyword">new</span> Stack&lt;&gt;(); </span><br><span class="line">        stack.push(root);</span><br><span class="line">        sum.push(root.val);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">            TreeNode node = stack.pop();</span><br><span class="line">            <span class="keyword">int</span> cur = sum.pop();</span><br><span class="line">            <span class="keyword">if</span> (node.left == <span class="keyword">null</span> &amp;&amp; node.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">                res += cur;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(node.right);</span><br><span class="line">                sum.push(cur * <span class="number">10</span> + node.right.val);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(node.left);</span><br><span class="line">                sum.push(cur * <span class="number">10</span> + node.left.val);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/01/863. All Nodes Distance K in Binary Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/01/863. All Nodes Distance K in Binary Tree/" itemprop="url">
+                  863. All Nodes Distance K in Binary Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-01 22:15:18" itemprop="dateCreated datePublished" datetime="2018-07-01T22:15:18-07:00">2018-07-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-02 16:22:24" itemprop="dateModified" datetime="2018-07-02T16:22:24-07:00">2018-07-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Use HashMap，先用bfs或dfs将树变成一个图，之后根据target node的neighbors进行逐层搜索，直到distance == K。<br>通过HashSet avoid visited nodes。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Map&lt;TreeNode, HashSet&lt;TreeNode&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">distanceK</span><span class="params">(TreeNode root, TreeNode target, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> list;</span><br><span class="line">        buildMap(root);</span><br><span class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        q.offer(target);</span><br><span class="line">        Set&lt;TreeNode&gt; visited = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        visited.add(target);</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> dis = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> len = q.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> size = <span class="number">0</span>; size &lt; len; size++) &#123;</span><br><span class="line">                TreeNode cur = q.poll();</span><br><span class="line">                <span class="keyword">if</span> (dis == K) &#123;</span><br><span class="line">                    list.add(cur.val);</span><br><span class="line">                    found = <span class="keyword">true</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!map.get(cur).isEmpty()) &#123;</span><br><span class="line">                        <span class="keyword">for</span> (TreeNode t : map.get(cur)) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (!visited.contains(t)) &#123;</span><br><span class="line">                                q.offer(t);</span><br><span class="line">                                visited.add(t);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (found) <span class="keyword">return</span> list;</span><br><span class="line">            dis++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildMap</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        q.offer(node);</span><br><span class="line">        map.put(node, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">            TreeNode cur = q.poll();</span><br><span class="line">            <span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                map.put(cur.left, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">                map.get(cur).add(cur.left);</span><br><span class="line">                map.get(cur.left).add(cur);</span><br><span class="line">                q.offer(cur.left);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                map.put(cur.right, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">                map.get(cur).add(cur.right);</span><br><span class="line">                map.get(cur.right).add(cur);</span><br><span class="line">                q.offer(cur.right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/01/133. Clone Graph/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -350,7 +691,7 @@
                 
               
 
-              <time title="Created: 2018-07-01 20:21:03" itemprop="dateCreated datePublished" datetime="2018-07-01T20:21:03-04:00">2018-07-01</time>
+              <time title="Created: 2018-07-01 20:21:03" itemprop="dateCreated datePublished" datetime="2018-07-01T20:21:03-07:00">2018-07-01</time>
             
 
             
@@ -367,7 +708,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-05 02:29:20" itemprop="dateModified" datetime="2018-07-05T02:29:20-04:00">2018-07-05</time>
+                <time title="Modified: 2018-07-04 23:29:20" itemprop="dateModified" datetime="2018-07-04T23:29:20-07:00">2018-07-04</time>
               
             
           </span>
@@ -521,7 +862,7 @@
                 
               
 
-              <time title="Created: 2018-07-01 18:52:43" itemprop="dateCreated datePublished" datetime="2018-07-01T18:52:43-04:00">2018-07-01</time>
+              <time title="Created: 2018-07-01 18:52:43" itemprop="dateCreated datePublished" datetime="2018-07-01T18:52:43-07:00">2018-07-01</time>
             
 
             
@@ -538,7 +879,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-08 14:54:09" itemprop="dateModified" datetime="2018-07-08T14:54:09-04:00">2018-07-08</time>
+                <time title="Modified: 2018-07-08 11:54:09" itemprop="dateModified" datetime="2018-07-08T11:54:09-07:00">2018-07-08</time>
               
             
           </span>
@@ -689,7 +1030,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -847,6 +1188,9 @@
 
 
 
+  
+  
+
 
 
 
@@ -870,6 +1214,16 @@
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
   
 
 

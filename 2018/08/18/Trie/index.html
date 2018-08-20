@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="除了代码，还会写点别的东西">
+  <meta name="description" content="刷题刷到要用trie的题又写不出了。。把trie好好写一写。https://leetcode.com/articles/implement-trie-prefix-tree/ This explanation is so fucking amazing. LC article is so qiang! ApplicationsTrie(prefix tree)会被用于：  自动补全 拼写检查 IP">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Prime Number">
-<meta property="og:url" content="https://zjutmisleo.github.io/2018/07/09/Prime Number/index.html">
+<meta property="og:title" content="Trie Tree">
+<meta property="og:url" content="https://zjutmisleo.github.io/2018/08/18/Trie/index.html">
 <meta property="og:site_name" content="Leo_607">
-<meta property="og:description" content="除了代码，还会写点别的东西">
+<meta property="og:description" content="刷题刷到要用trie的题又写不出了。。把trie好好写一写。https://leetcode.com/articles/implement-trie-prefix-tree/ This explanation is so fucking amazing. LC article is so qiang! ApplicationsTrie(prefix tree)会被用于：  自动补全 拼写检查 IP">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-29T22:46:47.846Z">
+<meta property="og:updated_time" content="2018-08-20T07:39:29.689Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Prime Number">
-<meta name="twitter:description" content="除了代码，还会写点别的东西">
+<meta name="twitter:title" content="Trie Tree">
+<meta name="twitter:description" content="刷题刷到要用trie的题又写不出了。。把trie好好写一写。https://leetcode.com/articles/implement-trie-prefix-tree/ This explanation is so fucking amazing. LC article is so qiang! ApplicationsTrie(prefix tree)会被用于：  自动补全 拼写检查 IP">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zjutmisleo.github.io/2018/07/09/Prime Number/"/>
+  <link rel="canonical" href="https://zjutmisleo.github.io/2018/08/18/Trie/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>Prime Number | Leo_607</title>
+  <title>Trie Tree | Leo_607</title>
   
 
 
@@ -305,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/09/Prime Number/">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/08/18/Trie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leo_607">
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Prime Number
+          <h1 class="post-title" itemprop="name headline">Trie Tree
               
             
           </h1>
@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Created: 2018-07-09 00:12:29" itemprop="dateCreated datePublished" datetime="2018-07-09T00:12:29-07:00">2018-07-09</time>
+              <time title="Created: 2018-08-18 17:25:18" itemprop="dateCreated datePublished" datetime="2018-08-18T17:25:18-07:00">2018-08-18</time>
             
 
             
@@ -364,29 +364,11 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-29 15:46:47" itemprop="dateModified" datetime="2018-07-29T15:46:47-07:00">2018-07-29</time>
+                <time title="Modified: 2018-08-20 00:39:29" itemprop="dateModified" datetime="2018-08-20T00:39:29-07:00">2018-08-20</time>
               
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -415,7 +397,18 @@
       
 
       
-        
+        <p>刷题刷到要用trie的题又写不出了。。把trie好好写一写。<br><a href="https://leetcode.com/articles/implement-trie-prefix-tree/" target="_blank" rel="noopener">https://leetcode.com/articles/implement-trie-prefix-tree/</a></p>
+<p>This explanation is so fucking amazing. LC article is so qiang!</p>
+<h1 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h1><p>Trie(prefix tree)会被用于：</p>
+<ol>
+<li>自动补全</li>
+<li>拼写检查</li>
+<li>IP routing</li>
+<li>T9 predictive text（九宫格输入法文本预测）</li>
+</ol>
+<p>why trie outperforms hash table, is that as hash table increases in size, there are lots of hash collisions and the search time complexity could deteriorate to O(n), where nn is the number of keys inserted. Trie could use less space compared to Hash Table when storing many keys with the same prefix. In this case using trie has only O(m) time complexity, where mm is the key length. Searching for a key in a balanced tree costs O(mlog n) time complexity.</p>
+<h1 id="TrieNode-structure"><a href="#TrieNode-structure" class="headerlink" title="TrieNode structure"></a>TrieNode structure</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TrieNode[] child;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> N = <span class="number">26</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isWord = <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TrieNode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        child = <span class="keyword">new</span> TrieNode(N);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> child[ch - <span class="string">'a'</span>] != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> TrieNode <span class="title">get</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> child[ch - <span class="string">'a'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">char</span> c, TrieNode node)</span> </span>&#123;</span><br><span class="line">        child[c - <span class="string">'a'</span>] = node;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isWord</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isWord;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWord</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        isWord = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -448,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/08/万历，姚贝娜和鱼/" rel="next" title="万历和鱼">
-                <i class="fa fa-chevron-left"></i> 万历和鱼
+              <a href="/2018/08/16/Back Tracking/" rel="next" title="Back Tracking">
+                <i class="fa fa-chevron-left"></i> Back Tracking
               </a>
             
           </div>
@@ -457,10 +450,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/15/Java lambda expressions/" rel="prev" title="Java lambda expressions">
-                Java lambda expressions <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,8 +498,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -595,6 +593,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Applications"><span class="nav-number">1.</span> <span class="nav-text">Applications</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TrieNode-structure"><span class="nav-number">2.</span> <span class="nav-text">TrieNode structure</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
