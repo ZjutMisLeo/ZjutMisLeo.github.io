@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Trie Tree]]></title>
+    <url>%2F2018%2F08%2F18%2FTrie%2F</url>
+    <content type="text"><![CDATA[刷题刷到要用trie的题又写不出了。。把trie好好写一写。https://leetcode.com/articles/implement-trie-prefix-tree/This explanation is so fucking amazing. LC article is so qiang! ApplicationsTrie(prefix tree)会被用于： 自动补全 拼写检查 IP routing T9 predictive text（九宫格输入法文本预测） why trie outperforms hash table, is that as hash table increases in size, there are lots of hash collisions and the search time complexity could deteriorate to O(n), where nn is the number of keys inserted. Trie could use less space compared to Hash Table when storing many keys with the same prefix. In this case using trie has only O(m) time complexity, where mm is the key length. Searching for a key in a balanced tree costs O(mlog n) time complexity. TrieNode structure1234567891011121314151617181920212223242526272829class TrieNode&#123; private TrieNode[] child; private final int N = 26; private boolean isWord = false; public TrieNode() &#123; child = new TrieNode(N); &#125; public boolean containsKey(char c) &#123; return child[ch - 'a'] != null; &#125; public TrieNode get(char c) &#123; return child[ch - 'a']; &#125; public void put(char c, TrieNode node) &#123; child[c - 'a'] = node; &#125; public boolean isWord() &#123; return isWord; &#125; public void setWord() &#123; isWord = true; &#125;&#125; TrieNode structure]]></content>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Back Tracking]]></title>
+    <url>%2F2018%2F08%2F16%2FBack%20Tracking%2F</url>
+    <content type="text"><![CDATA[他乡逢七夕,旅馆益羁愁。 不见穿针妇,空怀故国楼。 绪风初减热,新月始登秋。 谁忍窥河汉,迢迢问斗牛。 孟浩然写的好啊，以前只知道飞行迢迢暗度，轻罗小扇扑流萤]]></content>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[287. Find the Duplicate Number]]></title>
+    <url>%2F2018%2F08%2F08%2F287.%20Find%20the%20Duplicate%20Number%2F</url>
+    <content type="text"><![CDATA[今天收了封FB内推据信，我和kisday都想不明白问题在哪。。感觉是真的要报班了。。至少保证我有个面试吧，不然题刷的再多有什么用 http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;tid=176498&amp;extra=page%3D1%26filter%3Dsortid%26sortid%3D192%26sortid%3D192 在地里看了这个帖子，难受的一批。难受就对了，好走的都是下坡路。 但是题还是要刷。这题有要求，不能modify原数组，因此不能像442题那样根据下标取负。要利用duplicate num这个特点。在该数组中两个不同的index会指向同一个num。因此考虑做一个num -&gt; index的连接，那么该链表成环。问题转化为快慢指针链表找环。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Substring Search Problem]]></title>
+    <url>%2F2018%2F08%2F06%2FSubstring%20Search%20Problem%2F</url>
+    <content type="text"><![CDATA[刷面经时候看到，正好总结一下这一类substring search问题（其实本质逻辑是滑窗），discuss里的template给的很好，不过我觉得还是自己手写过一遍比较好。笨办法帮助理解，毕竟自己不是聪明人。 LC76. Minimum Window SubstringGiven a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n). Example: Input: S = &quot;ADOBECODEBANC&quot;, T = &quot;ABC&quot; Output: &quot;BANC&quot; 开一个map（可以数组或者HashMap）用来check S中的字母是否存在于T中。 参数含义： count 用于判断是否找到了一组解。if (count == 0) 就说明T中的所有字母已在当前指针扫描范围被全部cover。 初始化为map.size(), 因为T中可能有重复元素，所以用map.size()。count的增加取决于map中value是否为0。 left 左指针 right 右指针 head 用来maintain每次找到合法解后左指针的位置。 min 当前的最小长度，初始化为Integer.MAX_VALUE 按照代码想法手动过一遍test case: “cabwefgewcwaefgcf”，”cae” round 1: substring is cabwe right = 4, 此时count == 0，left指针开始move，此时left = 0, min = 6, head = 0 之后left和right分别自增，right = 5, left = 1; round 2: 因为c在round 1中被重新加到map中，下一步当right扫到c时，count == 0, 扫描中还会扫到一个e，使其在map中的val - 1 substring is abwefgewc right = 9, 此时count == 0，left指针开始move，此时left = 1, right - left + 1 &gt; min。head和min不变。 之后left和right分别自增，right = 10, left = 2; round 3: substring is efgewcwa right = 11, 此时count == 0， left指针开始move，扫到第一个e，发现map.get(e) == -1, 遂val+1，但map.get(e) 并没有大于0，count不变仍为0。所以while loop中left指针继续向右move，直到发现第二个e为止。 substring is ewcwa right = 11, count == 0, left = 7, right - left + 1 &lt; min, min = 5, head = 7; round 4: substring is cwae right = 12, count == 0, left = 9, right - left + 1 &lt; min, min = 4, head = 9; 找到最优解。 round 5: sunstring is aefgc right - left + 1 &gt; min, pass 扫描完毕 code 1234567891011121314151617181920212223242526272829303132333435class Solution &#123; public String minWindow(String s, String t) &#123; Map&lt;Character, Integer&gt; map = new HashMap&lt;&gt;(); for (char c : t.toCharArray()) &#123; map.put(c, map.getOrDefault(c, 0) + 1); &#125; int min = Integer.MAX_VALUE; int left = 0, right = 0, count = map.size(), head = 0; while (right &lt; s.length()) &#123; char r = s.charAt(right); if (map.containsKey(r)) &#123; map.put(r, map.get(r) - 1); if (map.get(r) == 0) &#123; count--; &#125; &#125; while (count == 0) &#123; char l = s.charAt(left); if (map.containsKey(l)) &#123; map.put(l, map.get(l) + 1); if (map.get(l) &gt; 0) &#123; count++; &#125; &#125; if (right - left + 1 &lt; min) &#123; head = left; min = right - left + 1; &#125; left++; &#125; right++; &#125; return min == Integer.MAX_VALUE ? "" : s.substring(head, head + min); &#125;&#125; 438. Find All Anagrams in a StringGiven a string s and a non-empty string p, find all the start indices of p&apos;s anagrams in s. Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100. The order of output does not matter. Example 1: Input: s: &quot;cbaebabacd&quot; p: &quot;abc&quot; Output: [0, 6] Explanation: The substring with start index = 0 is &quot;cba&quot;, which is an anagram of &quot;abc&quot;. The substring with start index = 6 is &quot;bac&quot;, which is an anagram of &quot;abc&quot;. 上一题是找subsequence，但是通过check right - left + 1 == p.length()，就能把代码转化为找substring。 1234567891011121314151617181920212223242526272829303132333435public class Solution &#123; public List&lt;Integer&gt; findAnagrams(String s, String p) &#123; Map&lt;Character, Integer&gt; map = new HashMap&lt;&gt;(); for (char c : p.toCharArray()) &#123; map.put(c, map.getOrDefault(c, 0) + 1); &#125; List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); int left = 0, right = 0, head = 0, count = map.size(); while (right &lt; s.length()) &#123; char r = s.charAt(right); if (map.containsKey(r)) &#123; map.put(r, map.get(r) - 1); if (map.get(r) == 0) &#123; count--; &#125; &#125; while (count == 0) &#123; char l = s.charAt(left); if (map.containsKey(l)) &#123; map.put(l, map.get(l) + 1); if (map.get(l) &gt; 0) &#123; count++; &#125; &#125; if (right - left + 1 == p.length()) &#123; head = left; list.add(head); &#125; left++; &#125; right++; &#125; return list; &#125;&#125; 3. Longest Substring Without Repeating CharactersGiven a string, find the length of the longest substring without repeating characters. Examples: Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3. Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1. Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring. 思路是一样的，右指针发现重复的那个数之后（map.get(r) &gt; 1），左指针开始扫描，直到找到和当前right指针对应的元素相同的元素。此时左指针左边的部分不会被用于之后的寻找最优解的过程中，在map中对应的val也为0.我在这里用了boolean found 来作为判断的条件是否进入左指针寻值的while loop，因为使用count会让人有点迷惑。1234567891011121314151617181920212223242526class Solution &#123; public int lengthOfLongestSubstring(String s) &#123; Map&lt;Character, Integer&gt; map = new HashMap&lt;&gt;(); int left = 0, right = 0, len = 0; boolean found = false; while (right &lt; s.length()) &#123; char r = s.charAt(right); map.put(r, map.getOrDefault(r, 0) + 1); if (map.get(r) &gt; 1) &#123; found = true; &#125; while (found) &#123; char l = s.charAt(left); if (map.get(l) &gt; 1) &#123; found = false; &#125; map.put(l, map.get(l) - 1); left++; &#125; //System.out.println("right is " + right + " left is " + left); len = Math.max(right - left + 1, len); right++; &#125; return len; &#125;&#125;]]></content>
+      <categories>
+        <category>刷题总结</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Search & Sort]]></title>
+    <url>%2F2018%2F07%2F29%2FSearch%20%26%20Sort%2F</url>
+    <content type="text"><![CDATA[最近看到FB有人被面了Kth smallest element，我也重新复习一下。// 白复习解法1: 开一个PriorityQueue，time complexity is Nlog(K). 解法2: quick select 思路和快排相同，但只需要对一边进行排序就行。 因为排序后pivot在整个list中的index是确定的，我们只需要比较K和index，如果K &lt; index，那么说明要找的target num在左半部分，反之亦然。 顺便也重新理一下一些基本的选择和排序算法。 binary searchJon Bentley说90%的程序员都写不对二分, 我个人觉得写二分最好就用一个模板。另外这个帖子真的讲的非常非常好。http://www.1point3acres.com/bbs/thread-432793-1-1.html 当搜索到达right - left == 1的时候，这时候mid是等于left的。 1234567891011121314public int binarySearch(int[] nums, int target) &#123; int left = 0, right = nums.length - 1; while (left &lt;= right) &#123; int mid = left + (right - left) / 2; //avoid overflow if (nums[mid] &lt; target) &#123; left = mid + 1; &#125; else if (nums[mid] == target) &#123; return mid; &#125; else &#123; right = mid - 1; &#125; &#125; return -1; //dont find&#125; 69. Sqrt(x)Implement int sqrt(int x). Compute and return the square root of x, where x is guaranteed to be a non-negative integer. Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned. Example 1 Input: 4 Output: 2 Example 2 Input: 8 Output: 2 Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned. 这题首先要避免越界。因此mid * mid &gt; x 应该写成 mid &gt; x / mid.这时候就要避免mid = 0。当right - left = 1时，mid = left（right = 1, left = 0, mid = 0）所以left不能从0开始。所以搜索范围确定为1 ~ x（x的平方必定大于x） 接下来要处理的问题是，如果找不到target sqrt，该怎么返回值。用7举例搜索区间到达[2,3]时，mid = 2, left = mid + 1 = 3.搜索区间到达[3,3]时，mid = 3, left = 3, right = 3 - 1 = 2。跳出循环。可以发现mid其实是刚好平方后大于x的那个值，因此我们返回的right就是解。 这时候要考虑下Corner Case，比如input是0或者2147483647。逻辑走完发现没啥问题。12345678910111213141516class Solution &#123; public int mySqrt(int x) &#123;// 0 9 int l = 1, r = x; while (l &lt;= r) &#123; int mid = l + (r - l) / 2; if (mid &gt; x / mid) &#123; r = mid - 1; &#125; else if (mid == x / mid) &#123; return mid; &#125; else&#123; l = mid + 1; &#125; &#125; return r; &#125;&#125; 50. Pow(x, n)Implement pow(x, n), which calculates x raised to the power n (xn). Example 1: Input: 2.00000, 10 Output: 1024.0000 Example 2: Input: 2.10000, 3 Output: 9.2610 Example 3: Input: 2.00000, -4 Output: 0.2500 Explanation: 2-2 = 1/22 = 1/4 = 0.25 很不喜欢这题，因为conner case太烦了。虽然不是binary seach但是还是用上了二分的想法，所以也放进来了。general idea is loop，蛤无疑问（混入了奇怪的东西）TLE。因为 x的n次方 = x的n/2次方 * x的n/2次方，所以recursion就出来了。odd就是拿一个出来再/2，很容易想到 然后是处理n &lt; 0的情况，就是进入递归前把n取反，x = 1/x。 这里出现问题，if n = Inetegr.MIN_VALUE，取反就overflow，因此要做一个处理。注意处理n之后也不要忘了x，因为n从-2147483648 变成了 214748364747，正负会有影响：x = x &gt; 0 ? 1.0 / x : -(1.0 / x);12345678910111213141516171819202122class Solution &#123; public double myPow(double x, int n) &#123; if (n == 0) return 1.0; if (n == 1) return x; if (n &lt; 0) &#123; if (n == Integer.MIN_VALUE) &#123; n = -(n + 1); x = x &gt; 0 ? 1.0 / x : -(1.0 / x); &#125; else &#123; n = -n; x = 1.0 / x; &#125; &#125; if (n % 2 == 0) &#123; return myPow(x * x, n / 2); &#125; else &#123; return x * myPow(x * x, n /2); &#125; &#125;&#125;]]></content>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Minimum Spanning Tree & Union found]]></title>
+    <url>%2F2018%2F07%2F22%2FMinimum%20Spanning%20Tree%2F</url>
+    <content type="text"><![CDATA[今天老姐让我写最小生成树，憋了半天写不出来=，= 最骚的是kisday和我说他也不会写，我会信？ 现在认真学习了一遍，放个总结免得以后又忘了。虽然我隐隐觉得亚麻不会给我这个用的机会。// 确实没给我OA，我可透您马。 最小生成树：连通加权无向图中一棵权值最小的生成树。 A. Kruskal算法 （摘自维基百科） 步骤： 1.新建图G，G中拥有原图中相同的节点，但没有边 2.将原图中所有的边按权值从小到大排序 3.从权值最小的边开始，如果这条边连接的两个节点于图G中不在同一个连通分量中（说人话：如果成环就不选这条边），则添加这条边到图G中 4.重复3，直至图G中所有的节点都在同一个连通分量中（所有点都用完了） 证明： 反证法。如果这颗树不是最小生成树，那么一定有一条不在这个树中的边。这条边必定会和其中某些变成环，但环中别的边都是权值最小的，所以如果使用这条边而删去其他的边，那么整颗树的权值就不是minimum了。 注意： 判断连接的两点是否在联通分量中（会不会成环）需要使用并查集。]]></content>
+      <tags>
+        <tag>算法</tag>
+        <tag>图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java lambda expressions]]></title>
+    <url>%2F2018%2F07%2F15%2FJava%20lambda%20expressions%2F</url>
+    <content type="text"><![CDATA[重写comparator:]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Prime Number]]></title>
+    <url>%2F2018%2F07%2F09%2FPrime%20Number%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[万历和鱼]]></title>
+    <url>%2F2018%2F07%2F08%2F%E4%B8%87%E5%8E%86%EF%BC%8C%E5%A7%9A%E8%B4%9D%E5%A8%9C%E5%92%8C%E9%B1%BC%2F</url>
+    <content type="text"><![CDATA[看了半本万历十五年，挺有意思的一本书。讲了一个被文官和儒家的规矩束缚的可怜皇帝。 昨天朋友深夜打电话给我，接起来就是一阵啜泣。电话那边一句我想回NB了，让我也感觉鼻头一酸。我好明白这种感觉。 我说实在不行就回家吧，其实我也好累，扛不住也正常。他却只是在另一边说，可回去就是承认自己失败了呀。 我突然说不出话来。因为自己内心无法描述出来的感受被人说出来了，被一个有同样感受的人。 其实他又帅又高，性格体贴，在多伦多买了房。饭也烧的好吃。怎么也算不上失败的。 只是还没有个稳定的工作，大概是觉得既然出来了，总得混出点名堂再回去吧。 我懂，因为这也是我的思量。 想显得体面一些，就会有很多顾虑和考量夹在在生活中，就很难用自己觉得舒服的姿势过日子了。但你得装作你其实还不错。 突然就感觉我们这些人有点可怜，还有更可怜的万历皇帝。 皇帝都身不由己，何况我们这些的普通人呢。 一边听着电话，电视里刚好放到姚贝娜在唱鱼，眼睛里闪烁着难以言明的光彩，光彩里涌动着渴望。 感觉我就像她歌声里的鱼，怎么逃都逃不出这个世界编的网，挣脱了一个网眼还有一个网眼。 网眼的种类还挺多：钱，关系，房子，车，人脉，还有乱七八糟的东西。 去你妈的。 我就想每天旱涝保收饿不死没事打打游戏偶尔吃顿好的。人活着怎么就得有这么多逼事儿呢，怎么就有这么多要求呢？ 最变态的是我自己也明白我得去努力追逐这些东西，不能当loser。到底为什么我会有这些跟自己过不去的想法并且用来要求自己？ 我小时候就一直在想，会不会我们的世界其实就是一本故事书，人生只是有个旁白在默默地读你的故事，一个个被写好的故事。 想来想去也没什么头绪，还是继续写会儿代码好了。算是明白文章憎命达了，失意的人才有闲心胡思乱想。 世界静下来了，想了想最近真的好累啊。其实就是在发牢骚吧，因为想逃却逃不了。]]></content>
+      <categories>
+        <category>essay</category>
+      </categories>
+      <tags>
+        <tag>随便写写</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Tree Traversals]]></title>
+    <url>%2F2018%2F07%2F05%2FTree%20Traversals%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[129. Sum Root to Leaf Numbers]]></title>
+    <url>%2F2018%2F07%2F05%2F129.%20Sum%20Root%20to%20Leaf%20Numbers%2F</url>
+    <content type="text"><![CDATA[A binary tree question. The general ieda is using preorder traversal in recursion way. Iterative solution is also accepted.1234567891011121314151617181920212223242526272829303132333435363738394041424344class Solution &#123; int sum; public int sumNumbers(TreeNode root) &#123; sum = 0; dfs(root, 0); return sum; &#125; public void dfs(TreeNode node, int cur) &#123; if (node == null) return; cur = cur * 10 + node.val; if (node.left == null &amp;&amp; node.right == null) &#123; sum += cur; return; &#125; if (node.left != null) dfs(node.left, cur); if (node.right != null) dfs(node.right, cur); &#125; public int iterative(TreeNode root) &#123;// use two stacks to keep nodes and current sum if (root == null) return 0; Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;(); Stack&lt;Integer&gt; sum = new Stack&lt;&gt;(); stack.push(root); sum.push(root.val); int res = 0; while (!stack.isEmpty()) &#123; TreeNode node = stack.pop(); int cur = sum.pop(); if (node.left == null &amp;&amp; node.right == null) &#123; res += cur; &#125; if (node.right != null) &#123; stack.push(node.right); sum.push(cur * 10 + node.right.val); &#125; if (node.left != null) &#123; stack.push(node.left); sum.push(cur * 10 + node.left.val); &#125; &#125; return res; &#125;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>binary tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[863. All Nodes Distance K in Binary Tree]]></title>
+    <url>%2F2018%2F07%2F01%2F863.%20All%20Nodes%20Distance%20K%20in%20Binary%20Tree%2F</url>
+    <content type="text"><![CDATA[Use HashMap，先用bfs或dfs将树变成一个图，之后根据target node的neighbors进行逐层搜索，直到distance == K。通过HashSet avoid visited nodes。1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465/** * Definition for a binary tree node. * public class TreeNode &#123; * int val; * TreeNode left; * TreeNode right; * TreeNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; Map&lt;TreeNode, HashSet&lt;TreeNode&gt;&gt; map = new HashMap&lt;&gt;(); public List&lt;Integer&gt; distanceK(TreeNode root, TreeNode target, int K) &#123; List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); if (root == null) return list; buildMap(root); Queue&lt;TreeNode&gt; q = new LinkedList&lt;&gt;(); q.offer(target); Set&lt;TreeNode&gt; visited = new HashSet&lt;&gt;(); visited.add(target); boolean found = false; int dis = 0; while (!q.isEmpty()) &#123; int len = q.size(); for (int size = 0; size &lt; len; size++) &#123; TreeNode cur = q.poll(); if (dis == K) &#123; list.add(cur.val); found = true; &#125;else &#123; if (!map.get(cur).isEmpty()) &#123; for (TreeNode t : map.get(cur)) &#123; if (!visited.contains(t)) &#123; q.offer(t); visited.add(t); &#125; &#125; &#125; &#125; &#125; if (found) return list; dis++; &#125; return list; &#125; public void buildMap(TreeNode node) &#123; Queue&lt;TreeNode&gt; q = new LinkedList&lt;&gt;(); q.offer(node); map.put(node, new HashSet&lt;TreeNode&gt;()); while (!q.isEmpty()) &#123; TreeNode cur = q.poll(); if (cur.left != null) &#123; map.put(cur.left, new HashSet&lt;TreeNode&gt;()); map.get(cur).add(cur.left); map.get(cur.left).add(cur); q.offer(cur.left); &#125; if (cur.right != null) &#123; map.put(cur.right, new HashSet&lt;TreeNode&gt;()); map.get(cur).add(cur.right); map.get(cur.right).add(cur); q.offer(cur.right); &#125; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>graph</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[133. Clone Graph]]></title>
+    <url>%2F2018%2F07%2F01%2F133.%20Clone%20Graph%2F</url>
+    <content type="text"><![CDATA[This is the BFS + Queue solution, use map to keep original nodes and copied nodes.Map can also avoid loop. 1234567891011121314151617181920212223242526272829303132/** * Definition for undirected graph. * class UndirectedGraphNode &#123; * int label; * List&lt;UndirectedGraphNode&gt; neighbors; * UndirectedGraphNode(int x) &#123; label = x; neighbors = new ArrayList&lt;UndirectedGraphNode&gt;(); &#125; * &#125;; */public class Solution &#123; public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) &#123; if (node == null) return node; UndirectedGraphNode copy = new UndirectedGraphNode(node.label); HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map = new HashMap&lt;&gt;(); Queue&lt;UndirectedGraphNode&gt; q = new LinkedList&lt;&gt;(); map.put(node, copy); q.offer(node); while (!q.isEmpty()) &#123; UndirectedGraphNode cur = q.poll(); for (UndirectedGraphNode n : cur.neighbors) &#123; if (!map.containsKey(n)) &#123; map.put(n, new UndirectedGraphNode(n.label)); q.offer(n); &#125; // add neighbors to the copied node // map.get(cur) -&gt; copied node of cur // map.get(n) -&gt; neighbors of copied node map.get(cur).neighbors.add(map.get(n)); &#125; &#125; return copy; &#125;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>graph</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[听雨]]></title>
+    <url>%2F2018%2F07%2F01%2F%E5%90%AC%E9%9B%A8%2F</url>
+    <content type="text"><![CDATA[第一次知道竹山词，是高中时候许南翔一笔笔写在黑板上，说你们现在不懂，觉得这词很一般，将来就懂了。 虞美人这个词牌，历来最推崇不过李煜的“春花秋月何时了，往事知多少”。但我私心里还是更喜欢蒋捷的这首听雨。 我想许南翔当年给我们上课时，应该和我现在是差不多的年纪。过了弱冠之年，离而立却还有一点距离，对人生这个事刚刚有了一点自己的理解。这个世界的万般头绪铺开在我的面前，少年意气开始一点点消减。 开始有了一些却道天凉好个秋的滋味。 晚上一个人在bonsai的吧台吃冷饭团，一边感受着突然而至的阵雨。没有什么悲欢离合也无情。 只有特别深的孤独。 一个人走在回出租房的路上，穿过不同颜色的皮肤，感受到夹带着雨丝的冷风。 我突然开始怀念家乡闷热的雨季，那潮湿绵密的水汽将我包裹的感觉，那江南水乡特有的味道。 那味道是妈丢给我的毛巾的香味，是爸端出的来的饭菜的香味，是家里放久了的家具，在梅雨季节散发出来的一点点霉味。 雨声夹带着电视节目的人声，混合着小区外远远传来的几句咒骂。 而现在雨声里只参杂着键盘敲击的哒哒声。 十几岁的我不明白雨水滴落地面的声音怎么能用得上听，但现在知道了。原来只有生活并不一帆风顺的人，才能听到雨的声音。 我合上电脑，看着窗外的雨帘中渐渐显出远处方尖碑的轮廓，若隐若现，居然像极了鼓楼。]]></content>
+      <categories>
+        <category>essay</category>
+      </categories>
+      <tags>
+        <tag>随便写写</tag>
+      </tags>
+  </entry>
+</search>

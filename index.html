@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans,en,default">
+<html class="theme-next mist use-motion" lang="zh-Hans,en,default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '6.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -184,7 +184,7 @@
   <div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
-
+    <a href="https://zjutmisleo.github.io/" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -258,11 +258,45 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
     </ul>
   
 
   
+    
 
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -281,9 +315,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -367,7 +398,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-20 00:39:29" itemprop="dateModified" datetime="2018-08-20T00:39:29-07:00">2018-08-20</time>
+                <time title="Modified: 2018-08-20 01:07:05" itemprop="dateModified" datetime="2018-08-20T01:07:05-07:00">2018-08-20</time>
               
             
           </span>
@@ -401,20 +432,14 @@
 
       
         
-          
-            <p>刷题刷到要用trie的题又写不出了。。把trie好好写一写。<br><a href="https://leetcode.com/articles/implement-trie-prefix-tree/" target="_blank" rel="noopener">https://leetcode.com/articles/implement-trie-prefix-tree/</a></p>
-<p>This explanation is so fucking amazing. LC article is so qiang!</p>
-<h1 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h1><p>Trie(prefix tree)会被用于：</p>
-<ol>
-<li>自动补全</li>
-<li>拼写检查</li>
-<li>IP routing</li>
-<li>T9 predictive text（九宫格输入法文本预测）</li>
-</ol>
-<p>why trie outperforms hash table, is that as hash table increases in size, there are lots of hash collisions and the search time complexity could deteriorate to O(n), where nn is the number of keys inserted. Trie could use less space compared to Hash Table when storing many keys with the same prefix. In this case using trie has only O(m) time complexity, where mm is the key length. Searching for a key in a balanced tree costs O(mlog n) time complexity.</p>
-<h1 id="TrieNode-structure"><a href="#TrieNode-structure" class="headerlink" title="TrieNode structure"></a>TrieNode structure</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TrieNode[] child;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> N = <span class="number">26</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isWord = <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TrieNode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        child = <span class="keyword">new</span> TrieNode(N);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> child[ch - <span class="string">'a'</span>] != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> TrieNode <span class="title">get</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> child[ch - <span class="string">'a'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">char</span> c, TrieNode node)</span> </span>&#123;</span><br><span class="line">        child[c - <span class="string">'a'</span>] = node;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isWord</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isWord;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWord</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        isWord = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          <p>刷题刷到要用trie的题又写不出了。。把trie好好写一写。<br><a href="https://leetcode.com/articles/implement-trie-prefix-tree/" target="_blank" rel="noopener">https://leetcode.com/articles/implement-trie-prefix-tree/</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/18/Trie/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -673,7 +698,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-09 18:50:32" itemprop="dateModified" datetime="2018-08-09T18:50:32-07:00">2018-08-09</time>
+                <time title="Modified: 2018-08-20 01:56:53" itemprop="dateModified" datetime="2018-08-20T01:56:53-07:00">2018-08-20</time>
               
             
           </span>
@@ -707,14 +732,17 @@
 
       
         
-          
-            <p>今天收了封FB内推据信，我和kisday都想不明白问题在哪。。感觉是真的要报班了。。至少保证我有个面试吧，不然题刷的再多有什么用</p>
+          <p>今天收了封FB内推据信，我和kisday都想不明白问题在哪。。感觉是真的要报班了。。至少保证我有个面试吧，不然题刷的再多有什么用</p>
 <p><a href="http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;tid=176498&amp;extra=page%3D1%26filter%3Dsortid%26sortid%3D192%26sortid%3D192" target="_blank" rel="noopener">http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;tid=176498&amp;extra=page%3D1%26filter%3Dsortid%26sortid%3D192%26sortid%3D192</a></p>
 <p>在地里看了这个帖子，难受的一批。难受就对了，好走的都是下坡路。</p>
-<p>但是题还是要刷。</p>
-<p>这题有要求，不能modify原数组，因此不能像442题那样根据下标取负。<br>要利用duplicate num这个特点。在该数组中两个不同的index会指向同一个num。<br>因此考虑做一个num -&gt; index的连接，那么该链表成环。问题转化为快慢指针链表找环。</p>
-
-          
+<p>但是题还是要刷。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/08/287. Find the Duplicate Number/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -829,7 +857,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-16 23:36:49" itemprop="dateModified" datetime="2018-08-16T23:36:49-07:00">2018-08-16</time>
+                <time title="Modified: 2018-08-20 01:56:32" itemprop="dateModified" datetime="2018-08-20T01:56:32-07:00">2018-08-20</time>
               
             
           </span>
@@ -881,80 +909,14 @@
 
       
         
-          
-            <p>刷面经时候看到，正好总结一下这一类substring search问题（其实本质逻辑是滑窗），discuss里的template给的很好，不过我觉得还是自己手写过一遍比较好。笨办法帮助理解，毕竟自己不是聪明人。</p>
-<h1 id="LC76-Minimum-Window-Substring"><a href="#LC76-Minimum-Window-Substring" class="headerlink" title="LC76. Minimum Window Substring"></a>LC76. Minimum Window Substring</h1><pre><code>Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
-Example:
-Input: S = &quot;ADOBECODEBANC&quot;, T = &quot;ABC&quot;
-Output: &quot;BANC&quot;
-</code></pre><ol>
-<li><p>开一个map（可以数组或者HashMap）用来check S中的字母是否存在于T中。</p>
-</li>
-<li><p>参数含义：</p>
-<pre><code>count 用于判断是否找到了一组解。if (count == 0) 就说明T中的所有字母已在当前指针扫描范围被全部cover。
-      初始化为map.size(), 因为T中可能有重复元素，所以用map.size()。count的增加取决于map中value是否为0。
-left  左指针 
-right 右指针
-head  用来maintain每次找到合法解后左指针的位置。
-min   当前的最小长度，初始化为Integer.MAX_VALUE
-</code></pre></li>
-<li><p>按照代码想法手动过一遍test case: “cabwefgewcwaefgcf”，”cae”</p>
-<pre><code>round 1:
-substring is cabwe
-right = 4, 此时count == 0，left指针开始move，此时left = 0, min = 6, head = 0
-之后left和right分别自增，right = 5, left = 1;
-
-round 2:
-因为c在round 1中被重新加到map中，下一步当right扫到c时，count == 0, 扫描中还会扫到一个e，使其在map中的val - 1
-substring is abwefgewc
-right = 9, 此时count == 0，left指针开始move，此时left = 1, right - left + 1 &gt; min。head和min不变。
-之后left和right分别自增，right = 10, left = 2;
-
-round 3:
-substring is efgewcwa
-right = 11, 此时count == 0， left指针开始move，扫到第一个e，发现map.get(e) == -1, 遂val+1，但map.get(e) 并没有大于0，count不变仍为0。所以while loop中left指针继续向右move，直到发现第二个e为止。
-substring is ewcwa
-right = 11, count == 0, left = 7, right - left + 1 &lt; min, min = 5, head = 7;
-
-round 4:
-substring is cwae
-right = 12, count == 0, left = 9, right - left + 1 &lt; min, min = 4, head = 9;
-找到最优解。
-
-round 5:
-sunstring is aefgc
-right - left + 1 &gt; min, pass
-
-扫描完毕
-</code></pre></li>
-<li><p>code</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">minWindow</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : t.toCharArray()) &#123;</span><br><span class="line">            map.put(c, map.getOrDefault(c, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, count = map.size(), head = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.length()) &#123;</span><br><span class="line">            <span class="keyword">char</span> r = s.charAt(right);</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(r)) &#123;</span><br><span class="line">                map.put(r, map.get(r) - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (map.get(r) == <span class="number">0</span>) &#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">char</span> l = s.charAt(left);</span><br><span class="line">                <span class="keyword">if</span> (map.containsKey(l)) &#123;</span><br><span class="line">                    map.put(l, map.get(l) + <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span> (map.get(l) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        count++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (right - left + <span class="number">1</span> &lt; min) &#123;</span><br><span class="line">                    head = left;</span><br><span class="line">                    min = right - left + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min == Integer.MAX_VALUE ? <span class="string">""</span> : s.substring(head, head + min);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="438-Find-All-Anagrams-in-a-String"><a href="#438-Find-All-Anagrams-in-a-String" class="headerlink" title="438. Find All Anagrams in a String"></a>438. Find All Anagrams in a String</h1><pre><code>Given a string s and a non-empty string p, find all the start indices of p&apos;s anagrams in s.
-Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
-The order of output does not matter.
-
-Example 1:
-Input:
-s: &quot;cbaebabacd&quot; p: &quot;abc&quot;
-Output:
-[0, 6]
-
-Explanation:
-The substring with start index = 0 is &quot;cba&quot;, which is an anagram of &quot;abc&quot;.
-The substring with start index = 6 is &quot;bac&quot;, which is an anagram of &quot;abc&quot;.
-</code></pre><p>上一题是找subsequence，但是通过check right - left + 1 == p.length()，就能把代码转化为找substring。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findAnagrams</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : p.toCharArray()) &#123;</span><br><span class="line">            map.put(c, map.getOrDefault(c, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, head = <span class="number">0</span>, count = map.size();</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.length()) &#123;</span><br><span class="line">            <span class="keyword">char</span> r = s.charAt(right);</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(r)) &#123;</span><br><span class="line">                map.put(r, map.get(r) - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (map.get(r) == <span class="number">0</span>) &#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">char</span> l = s.charAt(left);</span><br><span class="line">                <span class="keyword">if</span> (map.containsKey(l)) &#123;</span><br><span class="line">                    map.put(l, map.get(l) + <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span> (map.get(l) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        count++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (right - left + <span class="number">1</span> == p.length()) &#123;</span><br><span class="line">                    head = left;</span><br><span class="line">                    list.add(head);</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="3-Longest-Substring-Without-Repeating-Characters"><a href="#3-Longest-Substring-Without-Repeating-Characters" class="headerlink" title="3. Longest Substring Without Repeating Characters"></a>3. Longest Substring Without Repeating Characters</h1><pre><code>Given a string, find the length of the longest substring without repeating characters.
-
-Examples:
-Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.
-Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.
-Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
-</code></pre><p>思路是一样的，右指针发现重复的那个数之后（map.get(r) &gt; 1），左指针开始扫描，直到找到和当前right指针对应的元素相同的元素。<br>此时左指针左边的部分不会被用于之后的寻找最优解的过程中，在map中对应的val也为0.<br>我在这里用了boolean found 来作为判断的条件是否进入左指针寻值的while loop，因为使用count会让人有点迷惑。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.length()) &#123;</span><br><span class="line">            <span class="keyword">char</span> r = s.charAt(right);</span><br><span class="line">            map.put(r, map.getOrDefault(r, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (map.get(r) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                found = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (found) &#123;</span><br><span class="line">                <span class="keyword">char</span> l = s.charAt(left);</span><br><span class="line">                <span class="keyword">if</span> (map.get(l) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                    found = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                map.put(l, map.get(l) - <span class="number">1</span>);</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//System.out.println("right is " + right + " left is " + left);</span></span><br><span class="line">            len = Math.max(right - left + <span class="number">1</span>, len);</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
+          <p>刷面经时候看到，正好总结一下这一类substring search问题（其实本质逻辑是滑窗），discuss里的template给的很好，不过我觉得还是自己手写过一遍比较好。笨办法帮助理解，毕竟自己不是聪明人。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/06/Substring Search Problem/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1069,7 +1031,7 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-17 01:36:00" itemprop="dateModified" datetime="2018-08-17T01:36:00-07:00">2018-08-17</time>
+                <time title="Modified: 2018-08-20 01:58:19" itemprop="dateModified" datetime="2018-08-20T01:58:19-07:00">2018-08-20</time>
               
             
           </span>
@@ -1103,37 +1065,14 @@ Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. N
 
       
         
-          
-            <p>最近看到FB有人被面了Kth smallest element，我也重新复习一下。// 白复习</p>
-<p>解法1:</p>
-<p>开一个PriorityQueue，time complexity is Nlog(K).</p>
-<p>解法2:</p>
-<p>quick select</p>
-<p>思路和快排相同，但只需要对一边进行排序就行。</p>
-<p>因为排序后pivot在整个list中的index是确定的，我们只需要比较K和index，如果K &lt; index，那么说明要找的target num在左半部分，反之亦然。</p>
-<p>顺便也重新理一下一些基本的选择和排序算法。</p>
-<h1 id="binary-search"><a href="#binary-search" class="headerlink" title="binary search"></a>binary search</h1><p>Jon Bentley说90%的程序员都写不对二分, 我个人觉得写二分最好就用一个模板。<br>另外这个帖子真的讲的非常非常好。<a href="http://www.1point3acres.com/bbs/thread-432793-1-1.html" target="_blank" rel="noopener">http://www.1point3acres.com/bbs/thread-432793-1-1.html</a></p>
-<p>当搜索到达right - left == 1的时候，这时候mid是等于left的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">	    <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>; <span class="comment">//avoid overflow</span></span><br><span class="line">		<span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">			left = mid + <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			right = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">//dont find</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="69-Sqrt-x"><a href="#69-Sqrt-x" class="headerlink" title="69. Sqrt(x)"></a>69. Sqrt(x)</h2><pre><code>Implement int sqrt(int x).
-Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
-Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
-
-Example 1 Input: 4 Output: 2
-Example 2 Input: 8 Output: 2
-Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
-</code></pre><p>这题首先要避免越界。因此mid * mid &gt; x 应该写成 mid &gt; x / mid.<br>这时候就要避免mid = 0。<br>当right - left = 1时，mid = left（right = 1, left = 0, mid = 0）所以left不能从0开始。<br>所以搜索范围确定为1 ~ x（x的平方必定大于x）</p>
-<p>接下来要处理的问题是，如果找不到target sqrt，该怎么返回值。<br>用7举例<br>搜索区间到达[2,3]时，mid = 2, left = mid + 1 = 3.<br>搜索区间到达[3,3]时，mid = 3, left = 3, right = 3 - 1 = 2。跳出循环。<br>可以发现mid其实是刚好平方后大于x的那个值，因此我们返回的right就是解。</p>
-<p>这时候要考虑下Corner Case，比如input是0或者2147483647。逻辑走完发现没啥问题。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;<span class="comment">// 0 9 </span></span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">1</span>, r = x;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (mid &gt; x / mid) &#123;</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mid == x / mid) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="50-Pow-x-n"><a href="#50-Pow-x-n" class="headerlink" title="50. Pow(x, n)"></a>50. Pow(x, n)</h2><pre><code>Implement pow(x, n), which calculates x raised to the power n (xn).
-Example 1: Input: 2.00000, 10 Output: 1024.0000
-Example 2: Input: 2.10000, 3  Output: 9.2610
-Example 3: Input: 2.00000, -4 Output: 0.2500 Explanation: 2-2 = 1/22 = 1/4 = 0.25
-</code></pre><p>很不喜欢这题，因为conner case太烦了。虽然不是binary seach但是还是用上了二分的想法，所以也放进来了。<br>general idea is loop，蛤无疑问（混入了奇怪的东西）TLE。<br>因为 x的n次方 = x的n/2次方 * x的n/2次方，所以recursion就出来了。odd就是拿一个出来再/2，很容易想到</p>
-<p>然后是处理n &lt; 0的情况，就是进入递归前把n取反，x = 1/x。</p>
-<p>这里出现问题，if n = Inetegr.MIN_VALUE，取反就overflow，因此要做一个处理。<br>注意处理n之后也不要忘了x，因为n从-2147483648 变成了 214748364747，正负会有影响：x = x &gt; 0 ? 1.0 / x : -(1.0 / x);<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (n == Integer.MIN_VALUE) &#123;</span><br><span class="line">                n = -(n + <span class="number">1</span>);</span><br><span class="line">                x = x &gt; <span class="number">0</span> ? <span class="number">1.0</span> / x : -(<span class="number">1.0</span> / x);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                n = -n;</span><br><span class="line">                x = <span class="number">1.0</span> / x;</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> myPow(x * x, n / <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> x * myPow(x * x, n /<span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
+          <p>最近看到FB有人被面了Kth smallest element，我也重新复习一下。// 白复习<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/29/Search & Sort/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2109,6 +2048,15 @@ Example 3: Input: 2.00000, -4 Output: 0.2500 Explanation: 2-2 = 1/22 = 1/4 = 0.2
           
 
           
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZjutMisLeo" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
 
           
           
@@ -2160,7 +2108,7 @@ Example 3: Input: 2.00000, -4 Output: 0.2500 Explanation: 2-2 = 1/22 = 1/4 = 0.2
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -2210,10 +2158,9 @@ Example 3: Input: 2.00000, -4 Output: 0.2500 Explanation: 2-2 = 1/22 = 1/4 = 0.2
 
 
 
+  
 
 
-  
-  
 
 
 
@@ -2242,12 +2189,7 @@ Example 3: Input: 2.00000, -4 Output: 0.2500 Explanation: 2-2 = 1/22 = 1/4 = 0.2
 
   
   
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -2262,13 +2204,6 @@ Example 3: Input: 2.00000, -4 Output: 0.2500 Explanation: 2-2 = 1/22 = 1/4 = 0.2
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
-
-
 
   
 
@@ -2308,6 +2243,326 @@ Example 3: Input: 2.00000, -4 Output: 0.2500 Explanation: 2-2 = 1/22 = 1/4 = 0.2
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -2333,5 +2588,6 @@ Example 3: Input: 2.00000, -4 Output: 0.2500 Explanation: 2-2 = 1/22 = 1/4 = 0.2
 
   
 
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 </body>
 </html>
