@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="他乡逢七夕,旅馆益羁愁。 不见穿针妇,空怀故国楼。 绪风初减热,新月始登秋。 谁忍窥河汉,迢迢问斗牛。 孟浩然写的好啊，以前只知道飞行迢迢暗度，轻罗小扇扑流萤">
-<meta name="keywords" content="算法">
+  <meta name="description" content="他乡逢七夕,旅馆益羁愁。 不见穿针妇,空怀故国楼。 绪风初减热,新月始登秋。 谁忍窥河汉,迢迢问斗牛。">
+<meta name="keywords" content="回溯,递归">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Back Tracking">
 <meta property="og:url" content="https://zjutmisleo.github.io/2018/08/16/Back Tracking/index.html">
 <meta property="og:site_name" content="Leo_607">
-<meta property="og:description" content="他乡逢七夕,旅馆益羁愁。 不见穿针妇,空怀故国楼。 绪风初减热,新月始登秋。 谁忍窥河汉,迢迢问斗牛。 孟浩然写的好啊，以前只知道飞行迢迢暗度，轻罗小扇扑流萤">
+<meta property="og:description" content="他乡逢七夕,旅馆益羁愁。 不见穿针妇,空怀故国楼。 绪风初减热,新月始登秋。 谁忍窥河汉,迢迢问斗牛。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-17T01:00:08.885Z">
+<meta property="og:updated_time" content="2018-09-06T18:36:00.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Back Tracking">
-<meta name="twitter:description" content="他乡逢七夕,旅馆益羁愁。 不见穿针妇,空怀故国楼。 绪风初减热,新月始登秋。 谁忍窥河汉,迢迢问斗牛。 孟浩然写的好啊，以前只知道飞行迢迢暗度，轻罗小扇扑流萤">
+<meta name="twitter:description" content="他乡逢七夕,旅馆益羁愁。 不见穿针妇,空怀故国楼。 绪风初减热,新月始登秋。 谁忍窥河汉,迢迢问斗牛。">
 
 
 
@@ -378,16 +378,46 @@
                 
               
 
-              <time title="Created: 2018-08-16 17:23:39 / Modified: 18:00:08" itemprop="dateCreated datePublished" datetime="2018-08-16T17:23:39-07:00">2018-08-16</time>
+              <time title="Created: 2018-08-16 17:23:39" itemprop="dateCreated datePublished" datetime="2018-08-16T17:23:39-07:00">2018-08-16</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-09-06 11:36:00" itemprop="dateModified" datetime="2018-09-06T11:36:00-07:00">2018-09-06</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法和数据结构/" itemprop="url" rel="index"><span itemprop="name">算法和数据结构</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -419,8 +449,19 @@
         <p>他乡逢七夕,旅馆益羁愁。</p>
 <p>不见穿针妇,空怀故国楼。</p>
 <p>绪风初减热,新月始登秋。</p>
-<p>谁忍窥河汉,迢迢问斗牛。</p>
-<p>孟浩然写的好啊，以前只知道飞行迢迢暗度，轻罗小扇扑流萤</p>
+<p>谁忍窥河汉,迢迢问斗牛。<br><a id="more"></a></p>
+<p>报班的讲了递归和回溯，我自己也来总结一下吧。OA两个题写了我好久。</p>
+<p>A general approach to backtracking questions in Java.<br><a href="https://leetcode.com/problems/combination-sum/discuss/16502/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning" target="_blank" rel="noopener">https://leetcode.com/problems/combination-sum/discuss/16502/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning</a><br>LC discuss里这位老哥总结的很好。我自己再精简下。</p>
+<h1 id="Subsets-I-amp-Subsets-II"><a href="#Subsets-I-amp-Subsets-II" class="headerlink" title="Subsets I &amp; Subsets II"></a>Subsets I &amp; Subsets II</h1><p>I和II只有一个不同，数组中如果有重复元素，如何避免出现重复的子集？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; subsetsWithDup(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Arrays.sort(nums);</span><br><span class="line">    backtrack(list, <span class="keyword">new</span> ArrayList&lt;&gt;(), nums, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list, List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums, <span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">    list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = start; i &lt; nums.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt; start &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>; <span class="comment">// skip duplicates</span></span><br><span class="line">        tempList.add(nums[i]);</span><br><span class="line">        backtrack(list, tempList, nums, i + <span class="number">1</span>);</span><br><span class="line">        tempList.remove(tempList.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p>关键在于 排序 和 if(i &gt; start &amp;&amp; nums[i] == nums[i - 1]) continue;</p>
+<p>排序是确保后一句起作用的前提。举个例子</p>
+<p>对于不含重复元素的input，比如123, 生成的子集为[], 1, 12, 13, 123, 2, 23, 3</p>
+<p>对于含重复元素的input，比如122, 那生成的子集为[], 1, 12, 12, 122, 2, 22, 2</p>
+<p>去重的原理：当前子集为12时，backtracking删除2，当加入index为2的元素2时，发现重复，因此不加。</p>
+<p>i &gt; start的目的是为了保证第一个出现的重复的值会被加入subset中。</p>
+<h1 id="Permutations"><a href="#Permutations" class="headerlink" title="Permutations"></a>Permutations</h1><p>use boolean[], HashSet, or swap() is both ok.<br>如果限制不允许使用额外的空间来check each element是不是被使用，那么swap是一个很好的选择。<br>注意使用swap的话，for loop中i由index赋值，而不是每次从0开始。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permute(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        bt(nums, res, <span class="keyword">new</span> ArrayList&lt;Integer&gt;(), <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bt</span><span class="params">(<span class="keyword">int</span>[] nums, List&lt;List&lt;Integer&gt;&gt; res, List&lt;Integer&gt; list, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index == nums.length) &#123;</span><br><span class="line">            res.add(<span class="keyword">new</span> ArrayList&lt;Integer&gt;(list));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; nums.length; i++) &#123;</span><br><span class="line">            list.add(nums[i]);</span><br><span class="line">            swap(nums, index, i);</span><br><span class="line">            bt(nums, res, list, index + <span class="number">1</span>);</span><br><span class="line">            swap(nums, index, i);</span><br><span class="line">            list.remove(list.size() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">        nums[i] = nums[j];</span><br><span class="line">        nums[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -441,7 +482,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
+            <a href="/tags/回溯/" rel="tag"># 回溯</a>
+          
+            <a href="/tags/递归/" rel="tag"># 递归</a>
           
         </div>
       
@@ -515,8 +558,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -531,7 +583,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -550,7 +602,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -575,7 +629,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -610,6 +678,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Subsets-I-amp-Subsets-II"><span class="nav-number">1.</span> <span class="nav-text">Subsets I &amp; Subsets II</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Permutations"><span class="nav-number">2.</span> <span class="nav-text">Permutations</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

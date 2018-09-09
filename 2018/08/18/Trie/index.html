@@ -109,14 +109,14 @@
 
 
   <meta name="description" content="刷题刷到要用trie的题又写不出了。。把trie好好写一写。https://leetcode.com/articles/implement-trie-prefix-tree/">
-<meta name="keywords" content="算法">
+<meta name="keywords" content="字典树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Trie Tree">
 <meta property="og:url" content="https://zjutmisleo.github.io/2018/08/18/Trie/index.html">
 <meta property="og:site_name" content="Leo_607">
 <meta property="og:description" content="刷题刷到要用trie的题又写不出了。。把trie好好写一写。https://leetcode.com/articles/implement-trie-prefix-tree/">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-20T08:07:05.620Z">
+<meta property="og:updated_time" content="2018-09-06T18:53:46.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Trie Tree">
 <meta name="twitter:description" content="刷题刷到要用trie的题又写不出了。。把trie好好写一写。https://leetcode.com/articles/implement-trie-prefix-tree/">
@@ -395,11 +395,29 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-20 01:07:05" itemprop="dateModified" datetime="2018-08-20T01:07:05-07:00">2018-08-20</time>
+                <time title="Modified: 2018-09-06 11:53:46" itemprop="dateModified" datetime="2018-09-06T11:53:46-07:00">2018-09-06</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法和数据结构/" itemprop="url" rel="index"><span itemprop="name">算法和数据结构</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -438,7 +456,19 @@
 </ol>
 <p>why trie outperforms hash table, is that as hash table increases in size, there are lots of hash collisions and the search time complexity could deteriorate to O(n), where nn is the number of keys inserted. Trie could use less space compared to Hash Table when storing many keys with the same prefix. In this case using trie has only O(m) time complexity, where mm is the key length. Searching for a key in a balanced tree costs O(mlog n) time complexity.</p>
 <h1 id="TrieNode-structure"><a href="#TrieNode-structure" class="headerlink" title="TrieNode structure"></a>TrieNode structure</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TrieNode[] child;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> N = <span class="number">26</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isWord = <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TrieNode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        child = <span class="keyword">new</span> TrieNode(N);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> child[ch - <span class="string">'a'</span>] != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> TrieNode <span class="title">get</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> child[ch - <span class="string">'a'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">char</span> c, TrieNode node)</span> </span>&#123;</span><br><span class="line">        child[c - <span class="string">'a'</span>] = node;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isWord</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isWord;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWord</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        isWord = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="TrieNode-structure-1"><a href="#TrieNode-structure-1" class="headerlink" title="TrieNode structure"></a>TrieNode structure</h1>
+<h1 id="Insertion-of-a-key-to-a-trie"><a href="#Insertion-of-a-key-to-a-trie" class="headerlink" title="Insertion of a key to a trie"></a>Insertion of a key to a trie</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TrieNode root;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Trie</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        root = <span class="keyword">new</span> TrieNode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Inserts a word into the trie.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        TrieNode node = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> currentChar = word.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (!node.containsKey(currentChar)) &#123;</span><br><span class="line">                node.put(currentChar, <span class="keyword">new</span> TrieNode());</span><br><span class="line">            &#125;</span><br><span class="line">            node = node.get(currentChar);</span><br><span class="line">        &#125;</span><br><span class="line">        node.setEnd();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Complexity Analysis</p>
+<p>Time complexity : O(m), where m is the key length.<br>In each iteration of the algorithm, we either examine or create a node in the trie till we reach the end of the key. This takes only mm operations.</p>
+<p>Space complexity : O(m).<br>In the worst case newly inserted key doesn’t share a prefix with the the keys already inserted in the trie. We have to add mm new nodes, which takes us O(m) space.</p>
+<h1 id="Search-for-a-key-in-a-trie"><a href="#Search-for-a-key-in-a-trie" class="headerlink" title="Search for a key in a trie"></a>Search for a key in a trie</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">// search a prefix or whole key in trie and</span></span><br><span class="line">    <span class="comment">// returns the node where search ends</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> TrieNode <span class="title">searchPrefix</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        TrieNode node = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">           <span class="keyword">char</span> curLetter = word.charAt(i);</span><br><span class="line">           <span class="keyword">if</span> (node.containsKey(curLetter)) &#123;</span><br><span class="line">               node = node.get(curLetter);</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Returns if the word is in the trie.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">       TrieNode node = searchPrefix(word);</span><br><span class="line">       <span class="keyword">return</span> node != <span class="keyword">null</span> &amp;&amp; node.isEnd();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Complexity Analysis</p>
+<p>Time complexity : O(m) In each step of the algorithm we search for the next key character. In the worst case the algorithm performs m operations.</p>
+<p>Space complexity : O(1)</p>
+<h1 id="Search-for-a-key-prefix-in-a-trie"><a href="#Search-for-a-key-prefix-in-a-trie" class="headerlink" title="Search for a key prefix in a trie"></a>Search for a key prefix in a trie</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Returns if there is any word in the trie</span></span><br><span class="line">    <span class="comment">// that starts with the given prefix.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">startsWith</span><span class="params">(String prefix)</span> </span>&#123;</span><br><span class="line">        TrieNode node = searchPrefix(prefix);</span><br><span class="line">        <span class="keyword">return</span> node != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Complexity Analysis</p>
+<p>Time complexity : O(m)</p>
+<p>Space complexity : O(1)</p>
+
       
     </div>
 
@@ -458,7 +488,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
+            <a href="/tags/字典树/" rel="tag"># 字典树</a>
           
         </div>
       
@@ -480,6 +510,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/27/Dynamic Programming/" rel="prev" title="Dynamic Programming">
+                Dynamic Programming <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -553,7 +587,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -572,7 +606,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -597,7 +633,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -642,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Applications"><span class="nav-number">1.</span> <span class="nav-text">Applications</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TrieNode-structure"><span class="nav-number">2.</span> <span class="nav-text">TrieNode structure</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TrieNode-structure-1"><span class="nav-number">3.</span> <span class="nav-text">TrieNode structure</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Applications"><span class="nav-number">1.</span> <span class="nav-text">Applications</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TrieNode-structure"><span class="nav-number">2.</span> <span class="nav-text">TrieNode structure</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Insertion-of-a-key-to-a-trie"><span class="nav-number">3.</span> <span class="nav-text">Insertion of a key to a trie</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Search-for-a-key-in-a-trie"><span class="nav-number">4.</span> <span class="nav-text">Search for a key in a trie</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Search-for-a-key-prefix-in-a-trie"><span class="nav-number">5.</span> <span class="nav-text">Search for a key prefix in a trie</span></a></li></ol></div>
             
 
           </div>
