@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="又很多经典题，其实不难想，但是写起来又很多要注意的东西。">
+  <meta name="description" content="很多经典题，其实不难想，但是写起来有很多要注意的东西，把思路写一下，面试时候解释起来也更顺。">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode中的Word题">
 <meta property="og:url" content="https://zjutmisleo.github.io/2018/10/28/LeetCode中的Word题/index.html">
 <meta property="og:site_name" content="Leo_607">
-<meta property="og:description" content="又很多经典题，其实不难想，但是写起来又很多要注意的东西。">
+<meta property="og:description" content="很多经典题，其实不难想，但是写起来有很多要注意的东西，把思路写一下，面试时候解释起来也更顺。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-28T12:08:26.463Z">
+<meta property="og:updated_time" content="2018-10-28T12:09:35.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode中的Word题">
-<meta name="twitter:description" content="又很多经典题，其实不难想，但是写起来又很多要注意的东西。">
+<meta name="twitter:description" content="很多经典题，其实不难想，但是写起来有很多要注意的东西，把思路写一下，面试时候解释起来也更顺。">
 
 
 
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="Created: 2018-10-28 04:34:38 / Modified: 05:08:26" itemprop="dateCreated datePublished" datetime="2018-10-28T04:34:38-07:00">2018-10-28</time>
+              <time title="Created: 2018-10-28 04:34:38 / Modified: 05:09:35" itemprop="dateCreated datePublished" datetime="2018-10-28T04:34:38-07:00">2018-10-28</time>
             
 
             
@@ -434,7 +434,7 @@
       
 
       
-        <p>又很多经典题，其实不难想，但是写起来又很多要注意的东西。<br><a id="more"></a></p>
+        <p>很多经典题，其实不难想，但是写起来有很多要注意的东西，把思路写一下，面试时候解释起来也更顺。<br><a id="more"></a></p>
 <h1 id="126-Word-Ladder-II"><a href="#126-Word-Ladder-II" class="headerlink" title="126. Word Ladder II"></a>126. Word Ladder II</h1><p>基本思路：<br>1.先用BFS进行构图，连接每个单词。使用两个HashMap：paths &amp; levels。<br>  paths  用来存每个word和它的children的关系，是Map&lt;String, List<string>&gt;, 用于之后DFS遍历<br>  levels 用来存每个word和当前level，或者说step的关系，是Map&lt;String, Integer&gt;</string></p>
 <p>2.使用levels的原因：<br>       hit             level 1<br>     /     \<br>    hot    lit         level 2<br>     \     /  \<br>       lot    lid      level 3<br>         \     /<br>           lod         level 4<br>  当BFS到达hot（即queue中poll出hot）时，lot作为一个可选child已经被放入visited set<br>  但lot也是lit的可选child，而因为此时lot has been visited，lot不会被加入lit的children list。所以我们需要levels<br>  Now levels contains key lot，and level of lot is 3（在hot那一步存的）<br>  so if level of lot == level of lit + 1，那么lot就可以被加入lit的children list</p>
 <p>3.如果已经找到end（fount == true），不要把end放到visited中，用来避免其他的路径无法添加end到自己的list中。</p>
