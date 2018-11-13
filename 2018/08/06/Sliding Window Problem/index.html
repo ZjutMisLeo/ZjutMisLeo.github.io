@@ -108,23 +108,25 @@
 
 
 
-  <meta name="description" content="除了代码，还会写点别的东西">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leo_607">
-<meta property="og:url" content="https://zjutmisleo.github.io/tags/字典树/index.html">
+  <meta name="description" content="刷面经时候看到，正好总结一下这一类sliding window问题（滑窗）。discuss里的template给的很好，不过我觉得还是自己手写过一遍比较好。笨办法帮助理解，毕竟自己不是聪明人。">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sliding Window Problems">
+<meta property="og:url" content="https://zjutmisleo.github.io/2018/08/06/Sliding Window Problem/index.html">
 <meta property="og:site_name" content="Leo_607">
-<meta property="og:description" content="除了代码，还会写点别的东西">
+<meta property="og:description" content="刷面经时候看到，正好总结一下这一类sliding window问题（滑窗）。discuss里的template给的很好，不过我觉得还是自己手写过一遍比较好。笨办法帮助理解，毕竟自己不是聪明人。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-11T08:39:47.001Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leo_607">
-<meta name="twitter:description" content="除了代码，还会写点别的东西">
+<meta name="twitter:title" content="Sliding Window Problems">
+<meta name="twitter:description" content="刷面经时候看到，正好总结一下这一类sliding window问题（滑窗）。discuss里的template给的很好，不过我觉得还是自己手写过一遍比较好。笨办法帮助理解，毕竟自己不是聪明人。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zjutmisleo.github.io/tags/字典树/"/>
+  <link rel="canonical" href="https://zjutmisleo.github.io/2018/08/06/Sliding Window Problem/"/>
 
 
 
@@ -134,7 +136,7 @@
   };
 </script>
 
-  <title>Tag: 字典树 | Leo_607</title>
+  <title>Sliding Window Problems | Leo_607</title>
   
 
 
@@ -181,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://zjutmisleo.github.io/" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,7 +236,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
@@ -270,28 +272,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -340,58 +320,277 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>字典树<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/08/06/Sliding Window Problem/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/18/Trie/" itemprop="url">
-              
-                <span itemprop="name">Trie Tree</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Sliding Window Problems
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-18T17:25:18-07:00"
-              content="2018-08-18" >
-          08-18
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-06 20:01:28" itemprop="dateCreated datePublished" datetime="2018-08-06T20:01:28-07:00">2018-08-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-11 00:39:47" itemprop="dateModified" datetime="2018-11-11T00:39:47-08:00">2018-11-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/刷题总结/" itemprop="url" rel="index"><span itemprop="name">刷题总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>刷面经时候看到，正好总结一下这一类sliding window问题（滑窗）。<br>discuss里的template给的很好，不过我觉得还是自己手写过一遍比较好。笨办法帮助理解，毕竟自己不是聪明人。<br><a id="more"></a></p>
+<h1 id="LC76-Minimum-Window-Substring"><a href="#LC76-Minimum-Window-Substring" class="headerlink" title="LC76. Minimum Window Substring"></a>LC76. Minimum Window Substring</h1><pre><code>Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+Example:
+Input: S = &quot;ADOBECODEBANC&quot;, T = &quot;ABC&quot;
+Output: &quot;BANC&quot;
+</code></pre><ol>
+<li><p>开一个map（可以数组或者HashMap）用来check S中的字母是否存在于T中。</p>
+</li>
+<li><p>参数含义：</p>
+<pre><code>count 用于判断是否找到了一组解。if (count == 0) 就说明T中的所有字母已在当前指针扫描范围被全部cover。
+      初始化为map.size(), 因为T中可能有重复元素，所以用map.size()。count的增加取决于map中value是否为0。
+left  左指针 
+right 右指针
+head  用来maintain每次找到合法解后左指针的位置。
+min   当前的最小长度，初始化为Integer.MAX_VALUE
+</code></pre></li>
+<li><p>按照代码想法手动过一遍test case: “cabwefgewcwaefgcf”，”cae”</p>
+<pre><code>round 1:
+substring is cabwe
+right = 4, 此时count == 0，left指针开始move，此时left = 0, min = 6, head = 0
+之后left和right分别自增，right = 5, left = 1;
+
+round 2:
+因为c在round 1中被重新加到map中，下一步当right扫到c时，count == 0, 扫描中还会扫到一个e，使其在map中的val - 1
+substring is abwefgewc
+right = 9, 此时count == 0，left指针开始move，此时left = 1, right - left + 1 &gt; min。head和min不变。
+之后left和right分别自增，right = 10, left = 2;
+
+round 3:
+substring is efgewcwa
+right = 11, 此时count == 0， left指针开始move，扫到第一个e，发现map.get(e) == -1, 遂val+1，但map.get(e) 并没有大于0，count不变仍为0。所以while loop中left指针继续向右move，直到发现第二个e为止。
+substring is ewcwa
+right = 11, count == 0, left = 7, right - left + 1 &lt; min, min = 5, head = 7;
+
+round 4:
+substring is cwae
+right = 12, count == 0, left = 9, right - left + 1 &lt; min, min = 4, head = 9;
+找到最优解。
+
+round 5:
+sunstring is aefgc
+right - left + 1 &gt; min, pass
+
+扫描完毕
+</code></pre></li>
+<li><p>code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">minWindow</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : t.toCharArray()) &#123;</span><br><span class="line">            map.put(c, map.getOrDefault(c, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, count = map.size(), head = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.length()) &#123;</span><br><span class="line">            <span class="keyword">char</span> r = s.charAt(right);</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(r)) &#123;</span><br><span class="line">                map.put(r, map.get(r) - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (map.get(r) == <span class="number">0</span>) &#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">char</span> l = s.charAt(left);</span><br><span class="line">                <span class="keyword">if</span> (map.containsKey(l)) &#123;</span><br><span class="line">                    map.put(l, map.get(l) + <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span> (map.get(l) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        count++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (right - left + <span class="number">1</span> &lt; min) &#123;</span><br><span class="line">                    head = left;</span><br><span class="line">                    min = right - left + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min == Integer.MAX_VALUE ? <span class="string">""</span> : s.substring(head, head + min);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="438-Find-All-Anagrams-in-a-String"><a href="#438-Find-All-Anagrams-in-a-String" class="headerlink" title="438. Find All Anagrams in a String"></a>438. Find All Anagrams in a String</h1><pre><code>Given a string s and a non-empty string p, find all the start indices of p&apos;s anagrams in s.
+Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+The order of output does not matter.
+
+Example 1:
+Input:
+s: &quot;cbaebabacd&quot; p: &quot;abc&quot;
+Output:
+[0, 6]
+
+Explanation:
+The substring with start index = 0 is &quot;cba&quot;, which is an anagram of &quot;abc&quot;.
+The substring with start index = 6 is &quot;bac&quot;, which is an anagram of &quot;abc&quot;.
+</code></pre><p>上一题是找subsequence，但是通过check right - left + 1 == p.length()，就能把代码转化为找substring。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findAnagrams</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : p.toCharArray()) &#123;</span><br><span class="line">            map.put(c, map.getOrDefault(c, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, head = <span class="number">0</span>, count = map.size();</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.length()) &#123;</span><br><span class="line">            <span class="keyword">char</span> r = s.charAt(right);</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(r)) &#123;</span><br><span class="line">                map.put(r, map.get(r) - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (map.get(r) == <span class="number">0</span>) &#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">char</span> l = s.charAt(left);</span><br><span class="line">                <span class="keyword">if</span> (map.containsKey(l)) &#123;</span><br><span class="line">                    map.put(l, map.get(l) + <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span> (map.get(l) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        count++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (right - left + <span class="number">1</span> == p.length()) &#123;</span><br><span class="line">                    head = left;</span><br><span class="line">                    list.add(head);</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-Longest-Substring-Without-Repeating-Characters"><a href="#3-Longest-Substring-Without-Repeating-Characters" class="headerlink" title="3. Longest Substring Without Repeating Characters"></a>3. Longest Substring Without Repeating Characters</h1><pre><code>Given a string, find the length of the longest substring without repeating characters.
+
+Examples:
+Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.
+Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.
+Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
+</code></pre><p>思路是一样的，右指针发现重复的那个数之后（map.get(r) &gt; 1），左指针开始扫描，直到找到和当前right指针对应的元素相同的元素。<br>此时左指针左边的部分不会被用于之后的寻找最优解的过程中，在map中对应的val也为0.<br>我在这里用了boolean found 来作为判断的条件是否进入左指针寻值的while loop，因为使用count会让人有点迷惑。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.length()) &#123;</span><br><span class="line">            <span class="keyword">char</span> r = s.charAt(right);</span><br><span class="line">            map.put(r, map.getOrDefault(r, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (map.get(r) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                found = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (found) &#123;</span><br><span class="line">                <span class="keyword">char</span> l = s.charAt(left);</span><br><span class="line">                <span class="keyword">if</span> (map.get(l) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                    found = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                map.put(l, map.get(l) - <span class="number">1</span>);</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//System.out.println("right is " + right + " left is " + left);</span></span><br><span class="line">            len = Math.max(right - left + <span class="number">1</span>, len);</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/29/Search & Sort/" rel="next" title="Search & Sort">
+                <i class="fa fa-chevron-left"></i> Search & Sort
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/08/Find Duplicate/" rel="prev" title="287. Find Duplicate">
+                287. Find Duplicate <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -412,8 +611,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -527,6 +735,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LC76-Minimum-Window-Substring"><span class="nav-number">1.</span> <span class="nav-text">LC76. Minimum Window Substring</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#438-Find-All-Anagrams-in-a-String"><span class="nav-number">2.</span> <span class="nav-text">438. Find All Anagrams in a String</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Longest-Substring-Without-Repeating-Characters"><span class="nav-number">3.</span> <span class="nav-text">3. Longest Substring Without Repeating Characters</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -661,6 +885,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 

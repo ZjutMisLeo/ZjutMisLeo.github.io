@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Leo_607">
 <meta property="og:description" content="算是一个上课总结吧，复习复习一下Map，等面试的日子有点难熬的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T07:42:11.428Z">
+<meta property="og:updated_time" content="2018-11-13T01:17:47.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Map，Hash和Map的题">
 <meta name="twitter:description" content="算是一个上课总结吧，复习复习一下Map，等面试的日子有点难熬的。">
@@ -395,7 +395,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-07 00:42:11" itemprop="dateModified" datetime="2018-09-07T00:42:11-07:00">2018-09-07</time>
+                <time title="Modified: 2018-11-12 17:17:47" itemprop="dateModified" datetime="2018-11-12T17:17:47-08:00">2018-11-12</time>
               
             
           </span>
@@ -451,12 +451,15 @@
 <p>HashMap：基于哈希表实现。查找删除O(1)</p>
 <p>HashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程可以同时写入 HashTable 并且不会导致数据不一致。它是遗留类，不应该去使用它。现在可以使用 ConcurrentHashMap 来支持线程安全，并且 ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。</p>
 <p>LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。</p>
-<h1 id="HashMap和HashTable的区别"><a href="#HashMap和HashTable的区别" class="headerlink" title="HashMap和HashTable的区别"></a>HashMap和HashTable的区别</h1><p>HashTable 使用 synchronized 来进行同步。<br>HashMap 可以插入键为 null 的 Entry。<br>HashMap 的迭代器是 fail-fast 迭代器。<br>HashMap 不能保证随着时间的推移 Map 中的元素次序是不变的。</p>
+<h1 id="HashMap和HashTable的区别"><a href="#HashMap和HashTable的区别" class="headerlink" title="HashMap和HashTable的区别"></a>HashMap和HashTable的区别</h1><p>HashTable 使用 synchronized 来进行同步。<br>HashMap   可以插入键为 null 的 Entry。<br>HashMap   迭代器是 fail-fast 迭代器。<br>HashMap   不能保证随着时间的推移 Map 中的元素次序是不变的。</p>
 <h1 id="如何实现hash方法"><a href="#如何实现hash方法" class="headerlink" title="如何实现hash方法"></a>如何实现hash方法</h1><p>A long time ago, I bought a data structures book off the bargain table for $1.25. In it, the explanation for a hashing function said that it should ultimately mod by a prime number because of “the nature of math”.<br>What do you expect from a $1.25 book?<br>Anyway, I’ve had years to think about the nature of math, and still can’t figure it out.</p>
 <p>笑尿，但是确实有很多人和我一样疑惑为什么hash时候要选择prime number，是因为数学的本质么。</p>
 <p>the size of buckets is a power of 2, so use prime number can reduce collision. Becasue people usually compute index of each bucket based on hashcode % size.</p>
 <p>It turns out that “because of the nature of maths”, if the constant used in the hash, and the number of buckets, are coprime, then collisions are minimised in some common cases.</p>
-<h1 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h1><h2 id="word-pattern-amp-word-pattern-II"><a href="#word-pattern-amp-word-pattern-II" class="headerlink" title="word pattern &amp; word pattern II"></a>word pattern &amp; word pattern II</h2>
+<h1 id="Leetcode的相关题目"><a href="#Leetcode的相关题目" class="headerlink" title="Leetcode的相关题目"></a>Leetcode的相关题目</h1><h2 id="187-Repeated-DNA-Sequences"><a href="#187-Repeated-DNA-Sequences" class="headerlink" title="187. Repeated DNA Sequences"></a>187. Repeated DNA Sequences</h2><h2 id="word-pattern-amp-word-pattern-II"><a href="#word-pattern-amp-word-pattern-II" class="headerlink" title="word pattern &amp; word pattern II"></a>word pattern &amp; word pattern II</h2><h2 id="560-Subarray-Sum-Equals-K"><a href="#560-Subarray-Sum-Equals-K" class="headerlink" title="560. Subarray Sum Equals K"></a>560. Subarray Sum Equals K</h2><p>基本思路：<br>用HashMap去maintain前缀和，if (map.containsKey(当前sum - k))，res加上对应的值<br>要注意存在corner case：nums[0] == target<br>此时需要现在map中放入一个(0, 1)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        map.put(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(sum - k)) &#123;</span><br><span class="line">                res += map.get(sum - k);</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(sum, map.getOrDefault(sum, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="791-Custom-Sort-String（狗家面筋题）"><a href="#791-Custom-Sort-String（狗家面筋题）" class="headerlink" title="791. Custom Sort String（狗家面筋题）"></a>791. Custom Sort String（狗家面筋题）</h2><p>基本思路：<br>先分类到HashMap，问题是对String A，根据String B的顺序排序。<br>step1: 用一个map或者freq[]数组把需要排序的String的each character存进去。<br>step2: 扫描String B，如果当前character不为空，则用一个while loop直接把存入的character全部append。<br>step3: 根据字母表顺序扫描一遍freq[], 如果仍有character存在，同step2.</p>
+<p>follow up：<br>String A 特别长，如何mapreduce。<br>基本思路：<br>分段处理。得到处理完的String list。对这个list进行merge，思路和merge k sorted list相同。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">customSortString</span><span class="params">(String S, String T)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] freq = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : T.toCharArray()) &#123;</span><br><span class="line">            freq[c - <span class="string">'a'</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : S.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">while</span> (freq[c - <span class="string">'a'</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                sb.append(c);</span><br><span class="line">                freq[c - <span class="string">'a'</span>]--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c = <span class="string">'a'</span>; c &lt;= <span class="string">'z'</span>; c++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (freq[c - <span class="string">'a'</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                sb.append(c);</span><br><span class="line">                freq[c - <span class="string">'a'</span>]--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -575,7 +578,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -637,7 +640,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -682,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用的Map"><span class="nav-number">1.</span> <span class="nav-text">常用的Map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap和HashTable的区别"><span class="nav-number">2.</span> <span class="nav-text">HashMap和HashTable的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何实现hash方法"><span class="nav-number">3.</span> <span class="nav-text">如何实现hash方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Leetcode"><span class="nav-number">4.</span> <span class="nav-text">Leetcode</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#word-pattern-amp-word-pattern-II"><span class="nav-number">4.1.</span> <span class="nav-text">word pattern &amp; word pattern II</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用的Map"><span class="nav-number">1.</span> <span class="nav-text">常用的Map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap和HashTable的区别"><span class="nav-number">2.</span> <span class="nav-text">HashMap和HashTable的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何实现hash方法"><span class="nav-number">3.</span> <span class="nav-text">如何实现hash方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Leetcode的相关题目"><span class="nav-number">4.</span> <span class="nav-text">Leetcode的相关题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#187-Repeated-DNA-Sequences"><span class="nav-number">4.1.</span> <span class="nav-text">187. Repeated DNA Sequences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#word-pattern-amp-word-pattern-II"><span class="nav-number">4.2.</span> <span class="nav-text">word pattern &amp; word pattern II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#560-Subarray-Sum-Equals-K"><span class="nav-number">4.3.</span> <span class="nav-text">560. Subarray Sum Equals K</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#791-Custom-Sort-String（狗家面筋题）"><span class="nav-number">4.4.</span> <span class="nav-text">791. Custom Sort String（狗家面筋题）</span></a></li></ol></li></ol></div>
             
 
           </div>
