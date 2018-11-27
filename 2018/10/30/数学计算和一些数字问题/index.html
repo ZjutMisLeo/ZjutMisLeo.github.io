@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Leo_607">
 <meta property="og:description" content="总结LC中出现的包括的数学计算问题，包括实现除法，实现pow(), 实现sqrt(), 实现计算器和一些偏数学的题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-13T01:17:43.482Z">
+<meta property="og:updated_time" content="2018-11-26T05:20:16.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数学计算和一些数学问题">
 <meta name="twitter:description" content="总结LC中出现的包括的数学计算问题，包括实现除法，实现pow(), 实现sqrt(), 实现计算器和一些偏数学的题">
@@ -340,7 +340,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leo_607">
-      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="description" content="永远别可怜自己">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -395,7 +395,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-12 17:17:43" itemprop="dateModified" datetime="2018-11-12T17:17:43-08:00">2018-11-12</time>
+                <time title="Modified: 2018-11-25 21:20:16" itemprop="dateModified" datetime="2018-11-25T21:20:16-08:00">2018-11-25</time>
               
             
           </span>
@@ -475,6 +475,7 @@
 <li>注意处理n之后也不要忘了x;<br>因为n从-2147483648 变成了 214748364747，正负会有影响：x = x &gt; 0 ? 1.0 / x : -(1.0 / x);<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (n == Integer.MIN_VALUE) &#123;</span><br><span class="line">                n = -(n + <span class="number">1</span>);</span><br><span class="line">                x = x &gt; <span class="number">0</span> ? <span class="number">1.0</span> / x : -(<span class="number">1.0</span> / x);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                n = -n;</span><br><span class="line">                x = <span class="number">1.0</span> / x;</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> myPow(x * x, n / <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> x * myPow(x * x, n /<span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h2 id="224-Basic-Calculator"><a href="#224-Basic-Calculator" class="headerlink" title="224. Basic Calculator"></a>224. Basic Calculator</h2><p>基本思路：<br>实现一个计算器，运算符号包括+, -, ()。</p>
 <h1 id="数学问题"><a href="#数学问题" class="headerlink" title="数学问题"></a>数学问题</h1><h2 id="31-Next-Permutation"><a href="#31-Next-Permutation" class="headerlink" title="## 31. Next Permutation"></a>## 31. Next Permutation</h2><p>基本思路：<br>给你一个数比如158476531，让你找出一个Math.min(所有比它大的数)，这里的数只能是原数的permutation。<br>step1. 从尾道头扫描，找到第一个不是递增的数</p>
 <h2 id="238-Product-of-Array-Except-Self（脸家tag）"><a href="#238-Product-of-Array-Except-Self（脸家tag）" class="headerlink" title="238. Product of Array Except Self（脸家tag）"></a>238. Product of Array Except Self（脸家tag）</h2><p>基本思路：</p>
 <ol>
@@ -599,7 +600,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Leo_607</p>
-              <p class="site-description motion-element" itemprop="description">除了代码，还会写点别的东西</p>
+              <p class="site-description motion-element" itemprop="description">永远别可怜自己</p>
           </div>
 
           
@@ -609,7 +610,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -718,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数学计算"><span class="nav-number">1.</span> <span class="nav-text">数学计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#29-Divide-Two-Integers"><span class="nav-number">1.1.</span> <span class="nav-text">29. Divide Two Integers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#69-Sqrt-x"><span class="nav-number">1.2.</span> <span class="nav-text">69. Sqrt(x)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#50-Pow-x-n"><span class="nav-number">1.3.</span> <span class="nav-text">50. Pow(x, n)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数学问题"><span class="nav-number">2.</span> <span class="nav-text">数学问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-Next-Permutation"><span class="nav-number">2.1.</span> <span class="nav-text">## 31. Next Permutation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#238-Product-of-Array-Except-Self（脸家tag）"><span class="nav-number">2.2.</span> <span class="nav-text">238. Product of Array Except Self（脸家tag）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#279-Perfect-Squares"><span class="nav-number">2.3.</span> <span class="nav-text">279. Perfect Squares</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#247-Strobogrammatic-Number-II-狗家面筋题"><span class="nav-number">2.4.</span> <span class="nav-text">247. Strobogrammatic Number II(狗家面筋题)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数学计算"><span class="nav-number">1.</span> <span class="nav-text">数学计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#29-Divide-Two-Integers"><span class="nav-number">1.1.</span> <span class="nav-text">29. Divide Two Integers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#69-Sqrt-x"><span class="nav-number">1.2.</span> <span class="nav-text">69. Sqrt(x)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#50-Pow-x-n"><span class="nav-number">1.3.</span> <span class="nav-text">50. Pow(x, n)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#224-Basic-Calculator"><span class="nav-number">1.4.</span> <span class="nav-text">224. Basic Calculator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数学问题"><span class="nav-number">2.</span> <span class="nav-text">数学问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-Next-Permutation"><span class="nav-number">2.1.</span> <span class="nav-text">## 31. Next Permutation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#238-Product-of-Array-Except-Self（脸家tag）"><span class="nav-number">2.2.</span> <span class="nav-text">238. Product of Array Except Self（脸家tag）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#279-Perfect-Squares"><span class="nav-number">2.3.</span> <span class="nav-text">279. Perfect Squares</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#247-Strobogrammatic-Number-II-狗家面筋题"><span class="nav-number">2.4.</span> <span class="nav-text">247. Strobogrammatic Number II(狗家面筋题)</span></a></li></ol></li></ol></div>
             
 
           </div>

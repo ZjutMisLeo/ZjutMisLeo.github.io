@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Leo_607">
 <meta property="og:description" content="都是一些需要从左扫一遍再从右扫一遍的题，或者是需要两个数组来maintain每个index对应的左右值。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-12T09:57:16.011Z">
+<meta property="og:updated_time" content="2018-11-13T05:12:43.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="left to right&#x2F;right to left problems">
 <meta name="twitter:description" content="都是一些需要从左扫一遍再从右扫一遍的题，或者是需要两个数组来maintain每个index对应的左右值。">
@@ -340,7 +340,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leo_607">
-      <meta itemprop="description" content="除了代码，还会写点别的东西">
+      <meta itemprop="description" content="永远别可怜自己">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -395,7 +395,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-12 01:57:16" itemprop="dateModified" datetime="2018-11-12T01:57:16-08:00">2018-11-12</time>
+                <time title="Modified: 2018-11-12 21:12:43" itemprop="dateModified" datetime="2018-11-12T21:12:43-08:00">2018-11-12</time>
               
             
           </span>
@@ -447,7 +447,13 @@
 
       
         <p>都是一些需要从左扫一遍再从右扫一遍的题，或者是需要两个数组来maintain每个index对应的左右值。<br><a id="more"></a></p>
-<h1 id="53-Maximum-Subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="53 Maximum Subarray"></a>53 Maximum Subarray</h1><h1 id="121-Best-Time-to-Buy-and-Sell-Stock"><a href="#121-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="121 Best Time to Buy and Sell Stock"></a>121 Best Time to Buy and Sell Stock</h1><h1 id="152-Maximum-Product-Subarray"><a href="#152-Maximum-Product-Subarray" class="headerlink" title="152 Maximum Product Subarray"></a>152 Maximum Product Subarray</h1><h1 id="238-Product-of-Array-Except-Self"><a href="#238-Product-of-Array-Except-Self" class="headerlink" title="238 Product of Array Except Self"></a>238 Product of Array Except Self</h1><h1 id="739-Daily-Temperatures"><a href="#739-Daily-Temperatures" class="headerlink" title="739 Daily Temperatures"></a>739 Daily Temperatures</h1><h1 id="768-Max-Chunks-to-Make-Sorted-II"><a href="#768-Max-Chunks-to-Make-Sorted-II" class="headerlink" title="768 Max Chunks to Make Sorted II"></a>768 Max Chunks to Make Sorted II</h1><p>要求1：将数组分割成不同的部分，将分割的部分各自排序后再拼接，能否得到一个排序后的原数组。<br>      比如：21043，可以分割成210|43两个部分，各自排序后得到012|34。<br>要求2：满足1的前提下，要尽量多的分割这个数组</p>
+<h1 id="53-Maximum-Subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="53 Maximum Subarray"></a>53 Maximum Subarray</h1><h1 id="121-Best-Time-to-Buy-and-Sell-Stock"><a href="#121-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="121 Best Time to Buy and Sell Stock"></a>121 Best Time to Buy and Sell Stock</h1><h1 id="152-Maximum-Product-Subarray"><a href="#152-Maximum-Product-Subarray" class="headerlink" title="152 Maximum Product Subarray"></a>152 Maximum Product Subarray</h1><h1 id="238-Product-of-Array-Except-Self"><a href="#238-Product-of-Array-Except-Self" class="headerlink" title="238 Product of Array Except Self"></a>238 Product of Array Except Self</h1><p>基本思路：</p>
+<ol>
+<li>能用除法的话太简单了，直接进入不能的情况</li>
+<li>先用一个res[]来存前缀积，从左往右，res[0] = 1, res[i] = res[i - 1] <em> nums[i - 1]<br>arr 1 2 3 4<br>res 1 1 2 6<br>因为4是没乘的那个数，所以此时res[3]就是4对应的值<br>引入一个变量index，此时index = 1<br>res[3] = 6 </em> index = 6,  index = 1 <em> 4<br>res[2] = 2 </em> index = 8,  index = 4 <em> 3<br>res[1] = 1 </em> index = 12, index = 12 <em> 2<br>res[0] = 1 </em> index = 24, index = 24 * 1  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] productExceptSelf(<span class="keyword">int</span>[] nums) &#123;<span class="comment">//pre product</span></span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            res[i] = res[i - <span class="number">1</span>] * nums[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = nums.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;<span class="comment">// 从右边再循环一次，res[n] = res[n] * the product of right numbers</span></span><br><span class="line">            res[i] = res[i] * index; </span><br><span class="line">            index = index * nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="739-Daily-Temperatures"><a href="#739-Daily-Temperatures" class="headerlink" title="739 Daily Temperatures"></a>739 Daily Temperatures</h1><h1 id="768-Max-Chunks-to-Make-Sorted-II"><a href="#768-Max-Chunks-to-Make-Sorted-II" class="headerlink" title="768 Max Chunks to Make Sorted II"></a>768 Max Chunks to Make Sorted II</h1><p>要求1：将数组分割成不同的部分，将分割的部分各自排序后再拼接，能否得到一个排序后的原数组。<br>      比如：21043，可以分割成210|43两个部分，各自排序后得到012|34。<br>要求2：满足1的前提下，要尽量多的分割这个数组</p>
 <p>基本思路：<br>21043为例，如果我们能确保nums[index]左边的数都比它小，那么这一部分就可以被分割排序，因为他们的排序对后面的部分不影响。<br>所以需要两个数组，一个记录当前index的左边的max最大值是多少，一个记录index的右边的最小值是多少。<br>如果说leftmax &lt;= rightmin，那么就可以分割。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxChunksToSorted</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = arr.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] l = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        l[<span class="number">0</span>] = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            l[i] = Math.max(l[i - <span class="number">1</span>], arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] r = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        r[len - <span class="number">1</span>] = arr[len - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            r[i] = Math.min(arr[i], r[i + <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l[i] &lt;= r[i + <span class="number">1</span>])</span><br><span class="line">                res++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="821-Shortest-Distance-to-a-Character"><a href="#821-Shortest-Distance-to-a-Character" class="headerlink" title="821 Shortest Distance to a Character"></a>821 Shortest Distance to a Character</h1><p>基本思路：<br>“loveleetcode” “e”</p>
 <ol>
@@ -505,6 +511,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/20/Angular/" rel="prev" title="Angular">
+                Angular <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -568,7 +578,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Leo_607</p>
-              <p class="site-description motion-element" itemprop="description">除了代码，还会写点别的东西</p>
+              <p class="site-description motion-element" itemprop="description">永远别可怜自己</p>
           </div>
 
           
@@ -578,7 +588,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
