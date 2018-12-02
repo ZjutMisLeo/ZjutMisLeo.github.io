@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Leo_607">
 <meta property="og:description" content="总结LC中出现的包括的数学计算问题，包括实现除法，实现pow(), 实现sqrt(), 实现计算器和一些偏数学的题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-26T05:20:16.191Z">
+<meta property="og:updated_time" content="2018-11-27T17:10:37.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数学计算和一些数学问题">
 <meta name="twitter:description" content="总结LC中出现的包括的数学计算问题，包括实现除法，实现pow(), 实现sqrt(), 实现计算器和一些偏数学的题">
@@ -395,7 +395,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-25 21:20:16" itemprop="dateModified" datetime="2018-11-25T21:20:16-08:00">2018-11-25</time>
+                <time title="Modified: 2018-11-27 09:10:37" itemprop="dateModified" datetime="2018-11-27T09:10:37-08:00">2018-11-27</time>
               
             
           </span>
@@ -476,7 +476,7 @@
 </li>
 </ol>
 <h2 id="224-Basic-Calculator"><a href="#224-Basic-Calculator" class="headerlink" title="224. Basic Calculator"></a>224. Basic Calculator</h2><p>基本思路：<br>实现一个计算器，运算符号包括+, -, ()。</p>
-<h1 id="数学问题"><a href="#数学问题" class="headerlink" title="数学问题"></a>数学问题</h1><h2 id="31-Next-Permutation"><a href="#31-Next-Permutation" class="headerlink" title="## 31. Next Permutation"></a>## 31. Next Permutation</h2><p>基本思路：<br>给你一个数比如158476531，让你找出一个Math.min(所有比它大的数)，这里的数只能是原数的permutation。<br>step1. 从尾道头扫描，找到第一个不是递增的数</p>
+<h1 id="数学问题"><a href="#数学问题" class="headerlink" title="数学问题"></a>数学问题</h1><h2 id="31-Next-Permutation"><a href="#31-Next-Permutation" class="headerlink" title="## 31. Next Permutation"></a>## 31. Next Permutation</h2><p>题意：<br>给你一个数比如158476531，让你找出一个Math.min(所有比它大的数)，这里的数只能是原数的permutation。<br>基本思路：<br>decreasing的部分是没有比它大的permutation，reverse过后能保证这段是最小的<br>这个solution的图解做的很棒，可以看看帮助加深印象。<br><a href="https://leetcode.com/problems/next-permutation/solution/" target="_blank" rel="noopener">https://leetcode.com/problems/next-permutation/solution/</a><br>step1. 从尾道头扫描，找到第一个处于不是decreasing序列的数num，比如158476531就是4.<br>step2. 对于num，从num开始向右扫描，找到almost larger than num的数，例子中就是5<br>step3. 交换4，5的位置，得到158576431<br>step4. reverse decreasing 的那部分，得到158513467<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nextPermutation</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length, index = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &lt; nums[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                index = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (index == -<span class="number">1</span>) &#123;</span><br><span class="line">            reverse(nums, <span class="number">0</span>, len - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index1 = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index + <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &lt;= nums[index]) &#123;</span><br><span class="line">                index1 = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums, index, index1);</span><br><span class="line">        reverse(nums, index + <span class="number">1</span>, len - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">            swap(nums, i ,j);</span><br><span class="line">            i++;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">        nums[i] = nums[j];</span><br><span class="line">        nums[j] =temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="238-Product-of-Array-Except-Self（脸家tag）"><a href="#238-Product-of-Array-Except-Self（脸家tag）" class="headerlink" title="238. Product of Array Except Self（脸家tag）"></a>238. Product of Array Except Self（脸家tag）</h2><p>基本思路：</p>
 <ol>
 <li>能用除法的话太简单了，直接进入不能的情况</li>
@@ -524,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/28/LeetCode中的Word题/" rel="next" title="LeetCode中的Word题">
-                <i class="fa fa-chevron-left"></i> LeetCode中的Word题
+              <a href="/2018/10/28/LeetCode中的Word题/" rel="next" title="LeetCode中的Word,String题">
+                <i class="fa fa-chevron-left"></i> LeetCode中的Word,String题
               </a>
             
           </div>
@@ -610,7 +610,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -631,7 +631,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -674,7 +676,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

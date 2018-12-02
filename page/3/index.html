@@ -335,6 +335,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/01/863. All Nodes Distance K in Binary Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo_607">
+      <meta itemprop="description" content="永远别可怜自己">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo_607">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/01/863. All Nodes Distance K in Binary Tree/" itemprop="url">
+                  863. All Nodes Distance K in Binary Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-01 22:15:18" itemprop="dateCreated datePublished" datetime="2018-07-01T22:15:18-07:00">2018-07-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-02 16:22:24" itemprop="dateModified" datetime="2018-07-02T16:22:24-07:00">2018-07-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Use HashMap，先用bfs或dfs将树变成一个图，之后根据target node的neighbors进行逐层搜索，直到distance == K。<br>通过HashSet avoid visited nodes。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Map&lt;TreeNode, HashSet&lt;TreeNode&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">distanceK</span><span class="params">(TreeNode root, TreeNode target, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> list;</span><br><span class="line">        buildMap(root);</span><br><span class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        q.offer(target);</span><br><span class="line">        Set&lt;TreeNode&gt; visited = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        visited.add(target);</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> dis = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> len = q.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> size = <span class="number">0</span>; size &lt; len; size++) &#123;</span><br><span class="line">                TreeNode cur = q.poll();</span><br><span class="line">                <span class="keyword">if</span> (dis == K) &#123;</span><br><span class="line">                    list.add(cur.val);</span><br><span class="line">                    found = <span class="keyword">true</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!map.get(cur).isEmpty()) &#123;</span><br><span class="line">                        <span class="keyword">for</span> (TreeNode t : map.get(cur)) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (!visited.contains(t)) &#123;</span><br><span class="line">                                q.offer(t);</span><br><span class="line">                                visited.add(t);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (found) <span class="keyword">return</span> list;</span><br><span class="line">            dis++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildMap</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        q.offer(node);</span><br><span class="line">        map.put(node, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">            TreeNode cur = q.poll();</span><br><span class="line">            <span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                map.put(cur.left, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">                map.get(cur).add(cur.left);</span><br><span class="line">                map.get(cur.left).add(cur);</span><br><span class="line">                q.offer(cur.left);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                map.put(cur.right, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">                map.get(cur).add(cur.right);</span><br><span class="line">                map.get(cur.right).add(cur);</span><br><span class="line">                q.offer(cur.right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/01/133. Clone Graph/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -720,7 +890,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -741,7 +911,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -784,7 +956,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
