@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="Use HashMap，先用bfs或dfs将树变成一个图，之后根据target node的neighbors进行逐层搜索，直到distance == K。通过HashSet avoid visited nodes。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051">
-<meta name="keywords" content="graph">
+  <meta name="description" content="围在城里的人想逃出来，城外的人想冲进去，对婚姻也罢，职业也罢，人生的愿望大都如此。 ————杨绛">
+<meta name="keywords" content="随便写写">
 <meta property="og:type" content="article">
-<meta property="og:title" content="863. All Nodes Distance K in Binary Tree">
-<meta property="og:url" content="https://zjutmisleo.github.io/2018/07/01/863. All Nodes Distance K in Binary Tree/index.html">
+<meta property="og:title" content="围城">
+<meta property="og:url" content="https://zjutmisleo.github.io/2019/03/03/围城/index.html">
 <meta property="og:site_name" content="Leo_607">
-<meta property="og:description" content="Use HashMap，先用bfs或dfs将树变成一个图，之后根据target node的neighbors进行逐层搜索，直到distance == K。通过HashSet avoid visited nodes。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051">
+<meta property="og:description" content="围在城里的人想逃出来，城外的人想冲进去，对婚姻也罢，职业也罢，人生的愿望大都如此。 ————杨绛">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-02T23:22:24.498Z">
+<meta property="og:updated_time" content="2019-03-24T22:39:51.512Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="863. All Nodes Distance K in Binary Tree">
-<meta name="twitter:description" content="Use HashMap，先用bfs或dfs将树变成一个图，之后根据target node的neighbors进行逐层搜索，直到distance == K。通过HashSet avoid visited nodes。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051">
+<meta name="twitter:title" content="围城">
+<meta name="twitter:description" content="围在城里的人想逃出来，城外的人想冲进去，对婚姻也罢，职业也罢，人生的愿望大都如此。 ————杨绛">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zjutmisleo.github.io/2018/07/01/863. All Nodes Distance K in Binary Tree/"/>
+  <link rel="canonical" href="https://zjutmisleo.github.io/2019/03/03/围城/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>863. All Nodes Distance K in Binary Tree | Leo_607</title>
+  <title>围城 | Leo_607</title>
   
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2018/07/01/863. All Nodes Distance K in Binary Tree/">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2019/03/03/围城/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leo_607">
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">863. All Nodes Distance K in Binary Tree
+          <h1 class="post-title" itemprop="name headline">围城
               
             
           </h1>
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="Created: 2018-07-01 22:15:18" itemprop="dateCreated datePublished" datetime="2018-07-01T22:15:18-07:00">2018-07-01</time>
+              <time title="Created: 2019-03-03 16:27:08" itemprop="dateCreated datePublished" datetime="2019-03-03T16:27:08-08:00">2019-03-03</time>
             
 
             
@@ -395,7 +395,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-02 16:22:24" itemprop="dateModified" datetime="2018-07-02T16:22:24-07:00">2018-07-02</time>
+                <time title="Modified: 2019-03-24 15:39:51" itemprop="dateModified" datetime="2019-03-24T15:39:51-07:00">2019-03-24</time>
               
             
           </span>
@@ -412,7 +412,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">essay</span></a></span>
 
                 
                 
@@ -446,7 +446,11 @@
       
 
       
-        <p>Use HashMap，先用bfs或dfs将树变成一个图，之后根据target node的neighbors进行逐层搜索，直到distance == K。<br>通过HashSet avoid visited nodes。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Map&lt;TreeNode, HashSet&lt;TreeNode&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">distanceK</span><span class="params">(TreeNode root, TreeNode target, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> list;</span><br><span class="line">        buildMap(root);</span><br><span class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        q.offer(target);</span><br><span class="line">        Set&lt;TreeNode&gt; visited = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        visited.add(target);</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> dis = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> len = q.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> size = <span class="number">0</span>; size &lt; len; size++) &#123;</span><br><span class="line">                TreeNode cur = q.poll();</span><br><span class="line">                <span class="keyword">if</span> (dis == K) &#123;</span><br><span class="line">                    list.add(cur.val);</span><br><span class="line">                    found = <span class="keyword">true</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!map.get(cur).isEmpty()) &#123;</span><br><span class="line">                        <span class="keyword">for</span> (TreeNode t : map.get(cur)) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (!visited.contains(t)) &#123;</span><br><span class="line">                                q.offer(t);</span><br><span class="line">                                visited.add(t);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (found) <span class="keyword">return</span> list;</span><br><span class="line">            dis++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildMap</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        q.offer(node);</span><br><span class="line">        map.put(node, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">            TreeNode cur = q.poll();</span><br><span class="line">            <span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                map.put(cur.left, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">                map.get(cur).add(cur.left);</span><br><span class="line">                map.get(cur.left).add(cur);</span><br><span class="line">                q.offer(cur.left);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                map.put(cur.right, <span class="keyword">new</span> HashSet&lt;TreeNode&gt;());</span><br><span class="line">                map.get(cur).add(cur.right);</span><br><span class="line">                map.get(cur.right).add(cur);</span><br><span class="line">                q.offer(cur.right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>围在城里的人想逃出来，城外的人想冲进去，对婚姻也罢，职业也罢，人生的愿望大都如此。 ————杨绛</p>
+<a id="more"></a>
+<p>在湾区写代码的第三个月，我开始明白什么是围城了。这种感触远比从书中读到的更真切，因为它像是一道道潜流舔舐着你，在你平静且死寂的生活里泛起一丝丝的涟漪。直到有一天这涟漪成了波，成了浪，将你打湿在每一个孤独的夜里。</p>
+<p>在这里生活的每一天，都能感觉到自己好像更空洞了。作为“我”的象征少了，却更多的被填入了这里每个人都有的符号。如果将自己身上的零件拆解出来，你能从湾区的绝大部分人身上找到这些零件。这让我感到惶恐，仿佛自己正在被一个叫做湾区的石磨碾碎，从碾子上零零碎碎的掉落出来一些它不需要的东西，而剩下的部分被强行组合起来，在空洞处注入工资，房子，股票，对象等各式各样的粘合剂。</p>
+<p>没有办法逃离。</p>
 
       
     </div>
@@ -467,7 +471,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/graph/" rel="tag"># graph</a>
+            <a href="/tags/随便写写/" rel="tag"># 随便写写</a>
           
         </div>
       
@@ -480,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/01/133. Clone Graph/" rel="next" title="133. Clone Graph">
-                <i class="fa fa-chevron-left"></i> 133. Clone Graph
+              <a href="/2019/01/13/让我来看看湾区有啥好吃的/" rel="next" title="孤独的美食家">
+                <i class="fa fa-chevron-left"></i> 孤独的美食家
               </a>
             
           </div>
@@ -489,10 +493,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/05/129. Sum Root to Leaf Numbers/" rel="prev" title="129. Sum Root to Leaf Numbers">
-                129. Sum Root to Leaf Numbers <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
