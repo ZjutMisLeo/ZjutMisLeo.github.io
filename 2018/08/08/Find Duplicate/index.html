@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="Leo_607">
 <meta property="og:description" content="今天收了封FB内推据信，我和kisday都想不明白问题在哪。。感觉是真的要报班了。。至少保证我有个面试吧，不然题刷的再多有什么用 http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;amp;tid=176498&amp;amp;extra=page%3D1%26filter%3Dsortid%26sortid%3D192%26sortid%3D">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-30T11:00:05.273Z">
+<meta property="og:updated_time" content="2020-07-05T21:36:49.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="287. Find Duplicate">
 <meta name="twitter:description" content="今天收了封FB内推据信，我和kisday都想不明白问题在哪。。感觉是真的要报班了。。至少保证我有个面试吧，不然题刷的再多有什么用 http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;amp;tid=176498&amp;amp;extra=page%3D1%26filter%3Dsortid%26sortid%3D192%26sortid%3D">
@@ -394,7 +394,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-30 04:00:05" itemprop="dateModified" datetime="2018-10-30T04:00:05-07:00">2018-10-30</time>
+                <time title="Modified: 2020-07-05 14:36:49" itemprop="dateModified" datetime="2020-07-05T14:36:49-07:00">2020-07-05</time>
               
             
           </span>
@@ -431,11 +431,11 @@
 <p><a href="http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;tid=176498&amp;extra=page%3D1%26filter%3Dsortid%26sortid%3D192%26sortid%3D192" target="_blank" rel="noopener">http://www.1point3acres.com/bbs/forum.php?mod=viewthread&amp;tid=176498&amp;extra=page%3D1%26filter%3Dsortid%26sortid%3D192%26sortid%3D192</a></p>
 <p>在地里看了这个帖子，难受的一批。难受就对了，好走的都是下坡路。</p>
 <p>但是题还是要刷。总结一下找重复的一些题。<br><a id="more"></a></p>
-<h1 id="287-Find-the-Duplicate-Number"><a href="#287-Find-the-Duplicate-Number" class="headerlink" title="287. Find the Duplicate Number"></a>287. Find the Duplicate Number</h1><p>基本思路：<br>一般有三种方法：排序，用set，根据下标取负。</p>
+<h2 id="287-Find-the-Duplicate-Number"><a href="#287-Find-the-Duplicate-Number" class="headerlink" title="287. Find the Duplicate Number"></a>287. Find the Duplicate Number</h2><p>基本思路：<br>一般有三种方法：排序，用set，根据下标取负。</p>
 <p>这题有要求，不能modify原数组，不能使用额外的空间，不能大于O(n)</p>
 <p>利用duplicate num这个特点。在该数组中两个不同的index会指向同一个num。<br>因此考虑做一个num -&gt; index的连接，那么该链表成环。问题转化为快慢指针链表找环。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> slow = <span class="number">0</span>, fast = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">while</span> (fast &lt; len &amp;&amp; nums[fast] &lt; len) &#123;</span><br><span class="line">            slow = nums[slow];</span><br><span class="line">            fast = nums[nums[fast]];</span><br><span class="line">            <span class="keyword">if</span> (slow == fast) &#123;</span><br><span class="line">                slow = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">                    slow = nums[slow];</span><br><span class="line">                    fast = nums[fast];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> slow;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="652-Find-Duplicate-Subtrees"><a href="#652-Find-Duplicate-Subtrees" class="headerlink" title="652. Find Duplicate Subtrees"></a>652. Find Duplicate Subtrees</h1>
+<h2 id="652-Find-Duplicate-Subtrees"><a href="#652-Find-Duplicate-Subtrees" class="headerlink" title="652. Find Duplicate Subtrees"></a>652. Find Duplicate Subtrees</h2>
       
     </div>
 
@@ -669,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#287-Find-the-Duplicate-Number"><span class="nav-number">1.</span> <span class="nav-text">287. Find the Duplicate Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#652-Find-Duplicate-Subtrees"><span class="nav-number">2.</span> <span class="nav-text">652. Find Duplicate Subtrees</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#287-Find-the-Duplicate-Number"><span class="nav-number">1.</span> <span class="nav-text">287. Find the Duplicate Number</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#652-Find-Duplicate-Subtrees"><span class="nav-number">2.</span> <span class="nav-text">652. Find Duplicate Subtrees</span></a></li></ol></div>
             
 
           </div>
@@ -689,7 +689,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
