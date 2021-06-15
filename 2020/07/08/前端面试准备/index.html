@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="leetcode上有一些反人类思维的题，在这里总结一下，面试前看到也能方便快速回忆。">
+  <meta name="description" content="https://github.com/h5bp/Front-end-Developer-Interview-Question 每天对Html, CSS, JS 各总结一道题。为面试作准备">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="难以理解的怪题">
-<meta property="og:url" content="https://zjutmisleo.github.io/2020/09/01/难以理解的怪题/index.html">
+<meta property="og:title" content="前端面试准备">
+<meta property="og:url" content="https://zjutmisleo.github.io/2020/07/08/前端面试准备/index.html">
 <meta property="og:site_name" content="Leo_607">
-<meta property="og:description" content="leetcode上有一些反人类思维的题，在这里总结一下，面试前看到也能方便快速回忆。">
+<meta property="og:description" content="https://github.com/h5bp/Front-end-Developer-Interview-Question 每天对Html, CSS, JS 各总结一道题。为面试作准备">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-06-15T22:29:01.333Z">
+<meta property="og:updated_time" content="2021-06-15T22:29:01.326Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="难以理解的怪题">
-<meta name="twitter:description" content="leetcode上有一些反人类思维的题，在这里总结一下，面试前看到也能方便快速回忆。">
+<meta name="twitter:title" content="前端面试准备">
+<meta name="twitter:description" content="https://github.com/h5bp/Front-end-Developer-Interview-Question 每天对Html, CSS, JS 各总结一道题。为面试作准备">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zjutmisleo.github.io/2020/09/01/难以理解的怪题/"/>
+  <link rel="canonical" href="https://zjutmisleo.github.io/2020/07/08/前端面试准备/"/>
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>难以理解的怪题 | Leo_607</title>
+  <title>前端面试准备 | Leo_607</title>
   
 
 
@@ -335,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2020/09/01/难以理解的怪题/">
+    <link itemprop="mainEntityOfPage" href="https://zjutmisleo.github.io/2020/07/08/前端面试准备/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leo_607">
@@ -352,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">难以理解的怪题
+          <h1 class="post-title" itemprop="name headline">前端面试准备
               
             
           </h1>
@@ -377,7 +378,7 @@
                 
               
 
-              <time title="Created: 2020-09-01 16:31:16" itemprop="dateCreated datePublished" datetime="2020-09-01T16:31:16-07:00">2020-09-01</time>
+              <time title="Created: 2020-07-08 11:37:20" itemprop="dateCreated datePublished" datetime="2020-07-08T11:37:20-07:00">2020-07-08</time>
             
 
             
@@ -411,7 +412,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/刷题总结/" itemprop="url" rel="index"><span itemprop="name">刷题总结</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随便写写/" itemprop="url" rel="index"><span itemprop="name">随便写写</span></a></span>
 
                 
                 
@@ -445,8 +446,18 @@
       
 
       
-        <p>leetcode上有一些反人类思维的题，在这里总结一下，面试前看到也能方便快速回忆。<br><a id="more"></a></p>
-<h2 id="FB"><a href="#FB" class="headerlink" title="FB"></a>FB</h2><h3 id="157-Read-N-Characters-Given-Read4"><a href="#157-Read-N-Characters-Given-Read4" class="headerlink" title="157. Read N Characters Given Read4"></a>157. Read N Characters Given Read4</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LCS</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lcs</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = a.length();</span><br><span class="line">        <span class="keyword">int</span> n = b.length();</span><br><span class="line">        <span class="keyword">char</span>[] A = a.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] B = b.toCharArray();</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>) &#123;</span><br><span class="line">                    dp[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (A[i - <span class="number">1</span>] == B[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                        dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        dp[i][j] = Math.max(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="https://github.com/h5bp/Front-end-Developer-Interview-Question" target="_blank" rel="noopener">https://github.com/h5bp/Front-end-Developer-Interview-Question</a></p>
+<p>每天对Html, CSS, JS 各总结一道题。为面试作准备</p>
+<a id="more"></a>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol>
+<li>What does a doctype do?</li>
+</ol>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ol>
+<li>What is CSS selector specificity and how does it work?</li>
+</ol>
+<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><ol>
+<li>Explain event delegation</li>
+</ol>
 
       
     </div>
@@ -465,6 +476,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
 
       
       
@@ -474,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/22/System Design/" rel="next" title="System Design">
-                <i class="fa fa-chevron-left"></i> System Design
+              <a href="/2019/03/03/围城/" rel="next" title="围城">
+                <i class="fa fa-chevron-left"></i> 围城
               </a>
             
           </div>
@@ -484,8 +501,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/11/01/interview/" rel="prev" title="2021 面试准备">
-                2021 面试准备 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/07/22/System Design/" rel="prev" title="System Design">
+                System Design <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -681,7 +698,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FB"><span class="nav-number">1.</span> <span class="nav-text">FB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#157-Read-N-Characters-Given-Read4"><span class="nav-number">1.1.</span> <span class="nav-text">157. Read N Characters Given Read4</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS"><span class="nav-number">3.</span> <span class="nav-text">JS</span></a></li></ol></div>
             
 
           </div>
